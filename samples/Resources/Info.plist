@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>${EXECUTABLE_NAME}</string>
+	<key>CFBundleIconFile</key>
+	<string>icons.icns</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.ralcr.${PRODUCT_NAME:identifier}</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>xyz</key>
+	<string>6756876987</string>
+	<key>xyz_</key>
+	<string>09090890</string>
+	<key>lunch</key>
+	<array>
+		<string>Psychedelic Breakfast</string>
+		<string>Lunch time</string>
+		<string>Evening meal</string>
+	</array>
+	<key>d</key>
+	<dict>
+		<key>key1</key>
+		<string>value1</string>
+		<key>key2</key>
+		<date>2011-12-09T22:32:56Z</date>
+		<key>key3</key>
+		<true/>
+		<key>key4</key>
+		<data></data>
+		<key>key5</key>
+		<dict>
+			<key>key5.1</key>
+			<array>
+				<string>a</string>
+				<string>b</string>
+				<string>c</string>
+				<string>d</string>
+			</array>
+		</dict>
+		<key>key6</key>
+		<real>0.5</real>
+		<key>key7</key>
+		<integer>23</integer>
+	</dict>
+</dict>
+</plist>

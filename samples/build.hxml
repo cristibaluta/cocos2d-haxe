@@ -1,0 +1,27 @@
+-swf samples/build/Sample_NSDictionary.swf
+-cp samples
+-main Sample_NSDictionary
+-resource Resources/Info.plist@plist
+
+--next
+-swf samples/build/Sample_LabelTTF.swf
+-cp cocos2d
+-cp fontlabel
+-cp cocos2d/CCAction
+-cp cocos2d/CCTransition
+-cp cocos2d/CCMenu
+-cp cocos2d/CCParticle
+-cp samples
+-main Sample_LabelTTF
+
+--next
+-swf samples/build/Sample_UIImage.swf
+-cp samples
+-main Sample_UIImage
+
+--next
+-swf samples/build/Sample_CCMacros.swf
+-cp samples
+-cp cocos2d
+-main Sample_CCMacros
+	

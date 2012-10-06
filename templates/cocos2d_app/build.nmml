@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+
+  <app title="Cocos2d" file="cocos2d_app" main="Main" package="com.ralcr.cocos2d" version="1.0.0" icon="assets/icon.png" company="NME" />
+  <window width="0" height="0" fps="60" orientation="portrait" resizable="false" unless="target_flash" />
+ 
+  <set name="BUILD_DIR" value="build" />
+
+  <classpath name="Classes" />
+
+  <haxelib name="nme" />
+  <haxelib name="actuate" />
+
+  <assets path="Resources" rename="assets" include="*" />
+
+  <ndll name="std" />
+  <ndll name="regexp" />
+  <ndll name="zlib" />
+  <ndll name="nme" haxelib="nme" />
+
+</project>

@@ -1,0 +1,31 @@
+# CC_ENABLE_PROFILERS - found in cocos2dhx
+# CC_NODE_TRANSFORM_USING_AFFINE_MATRIX - found in CCNode
+# CC_ENABLE_PROFILERS - CCDirector
+# CC_LABELATLAS_DEBUG_DRAW - CCLabelAtlas
+# CC_SPRITEBATCHNODE_DEBUG_DRAW - CCSpriteBatchNode
+
+-swf build/cocos2d.swc
+#-xml map/map.xml
+-cp cocos2d
+-cp cocos2d/CCAction
+-cp cocos2d/CCTransition
+-cp cocos2d/CCMenu
+-cp cocos2d/CCParticle
+-cp cocosdenshion
+-cp fontlabel
+-main Cocos2d
+
+#--next
+#-js bin/cocos2d.js
+#-cp cocos2d
+#-cp cocos2d/CCAction
+#-cp cocos2d/CCTransition
+#-cp cocos2d/CCMenu
+#-cp cocos2d/CCParticle
+#-cp cocosdenshion
+#-cp fontlabel
+#-main Cocos2d
+
+--next templates/cocos2d_app/build.hxml
+--next samples/build.hxml
+--next tests/build.hxml
