@@ -14,4 +14,4 @@
 
 --next templates/cocos2d_app/build.hxml
 --next samples/build.hxml
---next tests/build.hxml
+--next utests/build.hxml

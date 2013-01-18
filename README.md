@@ -5,6 +5,6 @@ Cocos2d for Haxe is a framework for building 2D games, demos, and other graphica
 
 ##When will be ready?
 
-This is one of the projects i'm proud i've started and want to do anything to see it live. However sometime life comes and make some trouble and you don't have the same time. I hope 2013 will be a lucky year for this project.
+This is one of the projects i'm proud i've started and want to do anything to see it live. However sometime life comes and make some trouble and you don't have the same time. I hope 2013 will be a lucky year for this project. It was started in the autumn of 2011
 
 ###You can give a hand by submitting requests or giving interest

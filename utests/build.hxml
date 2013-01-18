@@ -1,0 +1,7 @@
+-neko utests/tests.n 
+-cp utests
+-cp .
+-main Tests
+	
+# run the tests
+-cmd neko utests/tests.n

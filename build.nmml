@@ -1,21 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
+	
+	<meta title="Cocos2D" package="com.ralcr.cocos" version="1.0.0" company="ralcr" />
+	<app file="Cocos2D" main="com.ralcr.cocos.Main" path="Export" />
+	
+	<icon name="Publish/Icon.png" width="57" height="57" />
+	<icon name="Publish/Icon@2x.png" width="114" height="114" />
+	<icon name="Publish/Icon-72.png" width="72" height="72" />
+	<icon name="Publish/Icon-72@2x.png" width="144" height="144" />
+	<launchImage path="Publish/Default.png" width="320" height="480" />
+	<launchImage path="Publish/Default@2x.png" width="640" height="960" />
+	<launchImage path="Publish/Default-Portrait~ipad.png" width="768" height="1024" />
+	<launchImage path="Publish/Default-Portrait@2x~ipad.png" width="1536" height="2048" />
+	<launchImage path="Publish/Default-Landscape~ipad.png" width="1024" height="768" />
+	<launchImage path="Publish/Default-Landscape@2x~ipad.png" width="2048" height="1536" />
+	
+	<window width="640" height="960" fps="60" orientation="landscape" resizable="false" if="ios" />
+	<window width="700" height="700" fps="60" orientation="portrait" resizable="false" if="mac" />
 
-  <app title="Cocos2d" file="cocos2d_app" main="Main" package="com.ralcr.cocos2d" version="1.0.0" icon="assets/icon.png" company="NME" />
-  <window width="0" height="0" fps="60" orientation="portrait" resizable="false" unless="target_flash" />
- 
-  <set name="BUILD_DIR" value="build" />
+	<set name="BUILD_DIR" value="Export" />
 
-  <classpath name="Classes" />
+	<classpath name="." />
+	
+	<haxelib name="nme" />
+	<ios deployment="4.2" binaries="fat" devices="iphone" />
+	
+	<assets path="assets" rename="assets" include="*" />
 
-  <haxelib name="nme" />
-  <haxelib name="actuate" />
-
-  <assets path="Resources" rename="assets" include="*" />
-
-  <ndll name="std" />
-  <ndll name="regexp" />
-  <ndll name="zlib" />
-  <ndll name="nme" haxelib="nme" />
-
+	<ndll name="std" />
+	<ndll name="regexp" />
+	<ndll name="zlib" />
+	<ndll name="nme" haxelib="nme" />
+	
+	<section if="release-sign">
+		<certificate path="eclecticdesignstudio.keystore" if="android" />
+		<certificate path="author.p12" if="blackberry" />
+	</section>
+	
 </project>
