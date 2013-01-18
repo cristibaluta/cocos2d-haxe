@@ -4,6 +4,7 @@
 //  Created by Baluta Cristian on 2011-12-11.
 //  Copyright (c) 2011 ralcr.com. All rights reserved.
 //
+import cocos.CCLabelTTF;
 
 class Sample_LabelTTF extends flash.display.MovieClip {
 	
@@ -12,8 +13,8 @@ class Sample_LabelTTF extends flash.display.MovieClip {
 		super();
 		try{
 			var label :CCLabelTTF = CCLabelTTF.labelWithString ("Hello World", null,null,null, "Arial", 64);
-			var size = new objc.CGSize (500, 500);
-			label.position = new objc.CGPoint ( size.width/2, size.height/2 );
+			var size = new cocos.support.CGSize (500, 500);
+			label.position = new cocos.support.CGPoint ( size.width/2, size.height/2 );
 			//this.addChild ( label );
 		}
 		catch(e:Dynamic){

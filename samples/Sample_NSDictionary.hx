@@ -4,7 +4,7 @@
 //  Created by Baluta Cristian on 2011-12-09.
 //  Copyright (c) 2011 ralcr.com. All rights reserved.
 //
-import objc.NSDictionary;
+import cocos.support.NSDictionary;
 
 class Sample_NSDictionary {
 	

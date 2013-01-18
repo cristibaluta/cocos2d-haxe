@@ -4,12 +4,12 @@
 //  Created by Baluta Cristian on 2011-12-12.
 //  Copyright (c) 2011 ralcr.com. All rights reserved.
 //
-import objc.CGPoint;
-import objc.CGSize;
-import objc.CGRect;
-import support.CGPointExtension;
-import support.CGSizeExtension;
-import support.CGRectExtension;
+import cocos.support.CGPoint;
+import cocos.support.CGSize;
+import cocos.support.CGRect;
+import cocos.support.CGPointExtension;
+import cocos.support.CGSizeExtension;
+import cocos.support.CGRectExtension;
 
 
 class Test_CGExtensions extends haxe.unit.TestCase {

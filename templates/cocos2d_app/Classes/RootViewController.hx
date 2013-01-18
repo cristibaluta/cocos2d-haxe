@@ -10,10 +10,10 @@
 // RootViewController + iAd
 // If you want to support iAd, use this class as the controller of your iAd
 //
-import CCDirector;
-import objc.CGRect;
-import objc.CGSize;
-import platforms.flash.FlashView;
+import cocos.CCDirector;
+import cocos.support.CGRect;
+import cocos.support.CGSize;
+import cocos.platform.flash.FlashView;
 
 
 class RootViewController

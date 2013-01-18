@@ -5,12 +5,7 @@
 
 --next
 -swf samples/build/Sample_LabelTTF.swf
--cp cocos2d
--cp fontlabel
--cp cocos2d/CCAction
--cp cocos2d/CCTransition
--cp cocos2d/CCMenu
--cp cocos2d/CCParticle
+-cp .
 -cp samples
 -main Sample_LabelTTF
 
@@ -22,6 +17,6 @@
 --next
 -swf samples/build/Sample_CCMacros.swf
 -cp samples
--cp cocos2d
+-cp .
 -main Sample_CCMacros
 	

@@ -6,9 +6,25 @@
 //  Copyright ___ORGANIZATIONNAME___ ___YEAR___. All rights reserved.
 //
 
-import objc.CGSize;
-import objc.CGPoint;
-import platforms.flash.CCAssets;
+import cocos.support.CGSize;
+import cocos.support.CGPoint;
+import cocos.CCLayer;
+import cocos.CCSprite;
+import cocos.CCLabelTTF;
+import cocos.CCScene;
+import cocos.CCNode;
+import cocos.CCDirector;
+import cocos.CCSpriteBatchNode;
+import cocos.CCSpriteFrameCache;
+import cocos.action.CCJumpTo;
+import cocos.action.CCJumpBy;
+import cocos.action.CCBlink;
+import cocos.action.CCFadeTo;
+import cocos.action.CCRepeatForever;
+import cocos.action.CCMoveTo;
+import cocos.action.CCMoveBy;
+import cocos.action.CCSequence;
+import cocos.platform.flash.CCAssets;
 
 
 // HelloWorld implementation
@@ -48,7 +64,7 @@ override public function init () :CCNode
 	var size :CGSize = CCDirector.sharedDirector().winSize();
 
 	// position the label on the center of the screen
-	var center = new objc.CGPoint ( size.width /2, size.height/2 );
+	var center = new CGPoint ( size.width /2, size.height/2 );
 	label.position = center;
 	
 	// add the label as a child to this Layer
@@ -150,8 +166,8 @@ override public function onEnter () {
 	trace("onEnter");
 	super.onEnter();
 	
-	var actionTo = CCMoveTo.actionWithDuration (2, new objc.CGPoint (0, 0));
-	var actionBy = CCMoveBy.actionWithDuration (2, new objc.CGPoint(80,80));
+	var actionTo = CCMoveTo.actionWithDuration (2, new CGPoint (0, 0));
+	var actionBy = CCMoveBy.actionWithDuration (2, new CGPoint(80,80));
 	var actionByBack = actionBy.reverse();
 	
 	label.runAction ( actionTo );

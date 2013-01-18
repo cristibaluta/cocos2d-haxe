@@ -6,25 +6,11 @@
 
 -swf build/cocos2d.swc
 #-xml map/map.xml
--cp cocos2d
--cp cocos2d/CCAction
--cp cocos2d/CCTransition
--cp cocos2d/CCMenu
--cp cocos2d/CCParticle
--cp cocosdenshion
--cp fontlabel
--main Cocos2d
+-cp .
+-main cocos.Cocos2d
 
 #--next
 #-js bin/cocos2d.js
-#-cp cocos2d
-#-cp cocos2d/CCAction
-#-cp cocos2d/CCTransition
-#-cp cocos2d/CCMenu
-#-cp cocos2d/CCParticle
-#-cp cocosdenshion
-#-cp fontlabel
-#-main Cocos2d
 
 --next templates/cocos2d_app/build.hxml
 --next samples/build.hxml

@@ -1,15 +1,10 @@
-cocos2d-haxe
-============
+##cocos2d-haxe
 
-cocos2d for haXe is a framework for building 2D games, demos, and other graphical/interactive applications. It is based on the cocos2d design: it uses the same concepts, but instead of using objective-c or python it uses haXe. cocos2d for haXe is a direct port from cocos2d for iPhone.
+Cocos2d for Haxe is a framework for building 2D games, demos, and other graphical/interactive applications. It is based on the cocos2d design: it uses the same concepts, but instead of using objective-c or python it uses Haxe. cocos2d for haXe is a direct port from cocos2d for iPhone.
 
 
-**Downloading the repository to your computer:**
+##When will be ready?
 
-`$ mkdir cocos2d-haxe`
+This is one of the projects i'm proud i've started and want to do anything to see it live. However sometime life comes and make some trouble and you don't have the same time. I hope 2013 will be a lucky year for this project.
 
-`$ cd cocos2d-haxe`
-
-`$ git init`
-
-`$ git pull git@github.com:ralcr/cocos2d-haxe.git`
+###You can give a hand by submitting requests or giving interest

@@ -4,6 +4,7 @@
 //  Created by Baluta Cristian on 2012.
 //  Copyright (c) 2012 ralcr.com. All rights reserved.
 //
+import cocos.CCMacros;
 
 class Sample_CCMacros {
 	

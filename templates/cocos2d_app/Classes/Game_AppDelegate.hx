@@ -7,7 +7,7 @@
 //
 
 import flash.display.MovieClip;
-import CCDirector;
+import cocos.CCDirector;
 
 
 class Game_AppDelegate {
@@ -72,7 +72,7 @@ class Game_AppDelegate {
 		//	2. depth format of 0 bit. Use 16 or 24 bit for 3d effects, like CCPageTurnTransition
 		//
 		//
-		var view :CC_VIEW = CC_VIEW.viewWithFrame ( new objc.CGRect(0,0,640,320) );
+		var view :CC_VIEW = CC_VIEW.viewWithFrame ( new cocos.support.CGRect(0,0,640,320) );
 		trace("view "+view);
 		
 		// attach the 'openglView' to the director

@@ -6,7 +6,7 @@
 //
 
 //@:bitmap("Resources/Girl.jpg") class Girl extends flash.display.BitmapData {}
-import objc.UIImage;
+import cocos.support.UIImage;
 
 class Sample_UIImage {
 	
