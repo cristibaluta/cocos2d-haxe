@@ -51,7 +51,7 @@ class CCGridBase
 public var gridSize :CGSize;
 
 /** wheter or not the grid is active */
-public var active (default, setActive) :Bool;
+public var active (default, set) :Bool;
 /** number of times that the grid will be reused */
 public var reuseGrid :Int;
 /** size of the grid */
@@ -63,7 +63,7 @@ public var texture :CCTexture2D;
 /** grabber used */
 public var grabber :CCGrabber;
 /** is texture flipped */
-public var isTextureFlipped (default, setIsTextureFlipped) :Bool;
+public var isTextureFlipped (default, set) :Bool;
 
 
 public function new () {}
@@ -116,23 +116,23 @@ public function release () :Void
 {
 	trace("cocos2d: releaseing "+ this);
 	
-	this.setActive ( false );
+	this.set_active ( false );
 	
 	texture.release();
 	grabber.release();
 }
 
 // properties
-public function setActive (active:Bool) :Bool
+public function set_active (active:Bool) :Bool
 {
 	this.active = active;
 	if( ! active ) {
 		var director = CCDirector.sharedDirector();
-		director.setProjection ( director.projection );
+		director.set_projection ( director.projection );
 	}
 	return active;
 }
-public function setIsTextureFlipped (flipped:Bool) :Bool
+public function set_isTextureFlipped (flipped:Bool) :Bool
 {
 	if( isTextureFlipped != flipped ) {
 		isTextureFlipped = flipped;

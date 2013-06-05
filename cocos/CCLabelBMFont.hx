@@ -504,11 +504,11 @@ var color_ :CC_Color3B;
 
 
 // string to render
-public var string (getString, setString) :String;
+public var string (get, set) :String;
 /** conforms to CCRGBAProtocol protocol */
-public var opacity (getOpacity, setOpacity) :Int;
+public var opacity (get, set) :Int;
 /** conforms to CCRGBAProtocol protocol */
-public var color (getColor, setColor) :CC_Color3B;
+public var color (get, set) :CC_Color3B;
 
 
 /** Purges the cached data.
@@ -546,7 +546,7 @@ public function initWithString (theString:String, fntFile:String) :CCLabelBMFont
 
 	anchorPoint_ = new CGPoint (0.5, 0.5);
 
-	this.setString ( theString );
+	this.set_string ( theString );
 
 	return this;
 }
@@ -626,7 +626,7 @@ public function createFontChars ()
 		}
 		else {
 			// reusing fonts
-			fontChar.setTextureRectInPixels (rect, false, rect.size);
+			fontChar.set_textureRectInPixels (rect, false, rect.size);
 			
 			// restore to default in case they were modified
 			fontChar.visible = true;
@@ -642,14 +642,14 @@ public function createFontChars ()
 		prev = /*c*/i;
 
 		// Apply label properties
-		fontChar.setOpacityModifyRGB ( opacityModifyRGB_ );
+		fontChar.set_opacityModifyRGB ( opacityModifyRGB_ );
 		// Color MUST be set before opacity, since opacity might change color if OpacityModifyRGB is on
 		fontChar.set_color ( color );
 
 		// only apply opacity if it is different than 255 )
 		// to prevent modifying the color too (issue #610)
 		if( opacity != 255 )
-			fontChar.setOpacity ( opacity );
+			fontChar.set_opacity ( opacity );
 
 		if (longestLine < nextFontPositionX)
 			longestLine = nextFontPositionX;
@@ -658,11 +658,11 @@ public function createFontChars ()
 	tmpSize.width = longestLine;
 	tmpSize.height = totalHeight;
 
-	this.setContentSizeInPixels ( tmpSize );
+	this.set_contentSizeInPixels ( tmpSize );
 }
 
 // LabelBMFont - CCLabelProtocol protocol
-public function setString (newString:String) :String
+public function set_string (newString:String) :String
 {
 	string_ = newString;
 	
@@ -672,13 +672,13 @@ public function setString (newString:String) :String
 	this.createFontChars();
 	return string_;
 }
-public function getString () :String {
+public function get_string () :String {
 	return string_;
 }
 
 // LabelBMFont - CCRGBAProtocol protocol
 
-public function setColor ( color:CC_Color3B ) :CC_Color3B
+public function set_color ( color:CC_Color3B ) :CC_Color3B
 {
 	color_ = color;
 	
@@ -686,27 +686,27 @@ public function setColor ( color:CC_Color3B ) :CC_Color3B
 		cast(children_[i]).set_color ( color_ );
 	return color_;
 }
-public function getColor () :CC_Color3B {
+public function get_color () :CC_Color3B {
 	return color_;
 }
 
-public function setOpacity ( opacity:Int ) :Int
+public function set_opacity ( opacity:Int ) :Int
 {
 	opacity_ = opacity;
 
 	for(i in 0...children_.length)
-		cast (children_[i]).setOpacity ( opacity_ );
+		cast (children_[i]).set_opacity ( opacity_ );
 	return opacity_;
 }
-public function getOpacity () :Int {
+public function get_opacity () :Int {
 	return opacity_;
 }
-public function setOpacityModifyRGB ( modify:Bool )
+public function set_opacityModifyRGB ( modify:Bool )
 {
 	opacityModifyRGB_ = modify;
 	
 	for(i in 0...children_.length)
-		cast (children_[i]).setOpacityModifyRGB ( modify );
+		cast (children_[i]).set_opacityModifyRGB ( modify );
 }
 
 public function doesOpacityModifyRGB () :Bool
@@ -715,10 +715,10 @@ public function doesOpacityModifyRGB () :Bool
 }
 
 // LabelBMFont - AnchorPoint
-override function setAnchorPoint ( point:CGPoint ) :CGPoint
+override function set_anchorPoint ( point:CGPoint ) :CGPoint
 {
 	if( ! point.equalToPoint (anchorPoint_) ) {
-		super.setAnchorPoint ( point );
+		super.set_anchorPoint ( point );
 		this.createFontChars();
 	}
 	return point;

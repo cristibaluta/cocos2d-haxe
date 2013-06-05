@@ -77,11 +77,11 @@ var dirty_ :Bool;
 
 
 /** whether of not the camera is dirty */
-public var dirty (getDirty, setDirty) :Bool;
-public function getDirty () :Bool {
+public var dirty (get, set) :Bool;
+public function get_dirty () :Bool {
 	return dirty_;
 }
-public function setDirty (d:Bool) :Bool {
+public function set_dirty (d:Bool) :Bool {
 	return dirty_ = d;
 }
 

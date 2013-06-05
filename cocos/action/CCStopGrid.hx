@@ -13,7 +13,7 @@ override public function startWithTarget (aTarget:Dynamic )
 	super.startWithTarget ( aTarget );
 
 	if ( this.target.grid && this.target.grid.active ) {
-		this.target.grid.setActive ( false );
+		this.target.grid.set_active ( false );
 		
 //		[this.target] setGrid: null];
 	}

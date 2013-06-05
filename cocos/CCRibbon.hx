@@ -83,7 +83,7 @@ var pastFirstPoint_ :Bool;
 
 
 /** Texture used by the ribbon. Conforms to CCTextureProtocol protocol */
-public var texture (default, setTexture) :CCTexture2D;
+public var texture (default, set_texture) :CCTexture2D;
 /** Texture lengths in pixels */
 public var textureLength :Float;
 /** GL blendind function */
@@ -157,7 +157,7 @@ public function addPointAt (location:CGPoint, w:Float) :Void
 	}
 
 	var sub :CGPoint = CGPointExtension.sub (lastLocation_, location);
-	var r :Float = CGPointExtension.toAngle(sub) + CCMacros.M_PI_2;
+	var r :Float = CGPointExtension.toAngle(sub) + CCMacros.M_PI_2();
 	var p1 :CGPoint = CGPointExtension.add(this.rotatePoint(new CGPoint (-w, 0), r), location);
 	var p2 :CGPoint = CGPointExtension.add(this.rotatePoint(new CGPoint (w, 0), r), location);
 	var len :Float = Math.sqrt(Math.pow(lastLocation_.x - location.x, 2) + Math.pow(lastLocation_.y - location.y, 2));
@@ -321,11 +321,11 @@ override public function draw ()
 }
 
 // Ribbon - CocosNodeTexture protocol
-public function setTexture (texture_:CCTexture2D) :CCTexture2D
+public function set_texture (texture_:CCTexture2D) :CCTexture2D
 {
 	texture.release();
 	texture = texture_;
-	this.setContentSizeInPixels ( texture.contentSizeInPixels );
+	this.set_contentSizeInPixels ( texture.contentSizeInPixels );
 	/* XXX Don't update blending function in Ribbons */
 	return texture;
 }

@@ -21,8 +21,8 @@ class Game_AppDelegate {
 		}
 		catch(e:Dynamic){
 			trace(e);
-			var stack = haxe.Stack.exceptionStack();
-			trace ( haxe.Stack.toString ( stack ) );
+			//var stack = haxe.Stack.exceptionStack();
+			//trace ( haxe.Stack.toString ( stack ) );
 		}
 	}
 	public function removeStartupFlicker ()
@@ -76,7 +76,7 @@ class Game_AppDelegate {
 		trace("view "+view);
 		
 		// attach the 'openglView' to the director
-		director.setView ( view );
+		director.set_view ( view );
 
 	//	// Enables High Res mode (Retina Display) on iPhone 4 and maintains low res on all other devices
 /*		if( ! director.enableRetinaDisplay(true) )
@@ -98,7 +98,7 @@ class Game_AppDelegate {
 
 		trace("director "+director);
 		director.setAnimationInterval (1.0/60);
-		director.setDisplayFPS (true);
+		director.set_displayFPS (true);
 
 
 		// make the OpenGLView a child of the view controller
@@ -151,7 +151,7 @@ class Game_AppDelegate {
 	}
 
 	public function applicationSignificantTimeChange () {
-		CCDirector.sharedDirector().setNextDeltaTimeZero(true);
+		CCDirector.sharedDirector().set_nextDeltaTimeZero(true);
 	}
 
 	public function release() {

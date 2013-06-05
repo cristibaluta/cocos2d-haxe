@@ -9,14 +9,14 @@ package cocos.menu;
  */
 class CCMenuItemFont extends CCMenuItemLabel
 {
-	var fontSize_ :Int;
-	var  fontName_ :String;
-}
+var fontSize_ :Int;
+var  fontName_ :String;
+
 /** set default font size */
-+(void) setFontSize: (Int) s;
+public static function setFontSize: (Int) s;
 
 /** get default font size */
-+(Int) fontSize;
+public static function fontSize () :Int
 
 /** set default font name */
 +(void) setFontName: (String*) n;

@@ -51,7 +51,7 @@ class HashElement
 	public var currentAction :CCAction;
 	public var currentActionSalvaged :Null<Bool>;
 	public var paused :Null<Bool>;
-	public var hh :Hash<String>;
+	public var hh :Map<String,String>;
 	public function new(){}
 }
 

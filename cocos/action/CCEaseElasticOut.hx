@@ -16,7 +16,7 @@ function update (t:Float) :Void
 		
 	} else {
 		var s :Float = period_ / 4;
-		newT = Math.pow(2, -10 * t) * Math.sin( (t-s) * CCMacros.M_PI_X_2 / period_) + 1;
+		newT = Math.pow(2, -10 * t) * Math.sin( (t-s) * CCMacros.M_PI()_X_2 / period_) + 1;
 	}
 	other.update ( newT );
 }

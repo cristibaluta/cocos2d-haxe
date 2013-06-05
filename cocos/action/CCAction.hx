@@ -47,12 +47,12 @@ public var tag :Int;/** The action tag. An identifier of the action */
  When the 'stop' method is called, target will be set to null.
  The target is 'assigned', it is not 'retained'.
  */
-public var target (getTarget, null) :Dynamic;
+public var target (get, null) :Dynamic;
 /** The original target, since target can be null.
  Is the target that were used to run the action. Unless you are doing something complex, 
  like CCActionManager, you should NOT call this method.
  @since v0.8.2*/
-public var originalTarget (getOriginalTarget, null) :Dynamic;
+public var originalTarget (get, null) :Dynamic;
 
 
 
@@ -90,10 +90,10 @@ public function isDone () :Bool
 {
 	return true;
 }
-function getTarget () :Dynamic {
+function get_target () :Dynamic {
 	return target_;
 }
-function getOriginalTarget () :Dynamic {
+function get_originalTarget () :Dynamic {
 	return originalTarget_;
 }
 

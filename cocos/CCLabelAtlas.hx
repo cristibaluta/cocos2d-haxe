@@ -48,7 +48,7 @@ class CCLabelAtlas extends CCAtlasNode
 {		
 // string to render
 var string_ :String;
-var string (getString, setString) :String;
+var string (get, set) :String;
 // the first char in the charmap
 var mapStartChar_ :String;
 
@@ -65,7 +65,7 @@ public function initWithString (string:String, charMapFile:String, itemWidth:Int
 	super.initWithTileFile (charMapFile, itemWidth, itemHeight, string.length);
 
 	mapStartChar_ = startCharMap;
-	this.setString(string);
+	this.set_string(string);
 
 	return this;
 }
@@ -127,7 +127,7 @@ override public function updateAtlasValues ()
 
 // CCLabelAtlas - CCLabelProtocol
 
-public function setString (newString:String) :String
+public function set_string (newString:String) :String
 {
 	var len :Int = newString.length;
 	if( len > textureAtlas_.capacity )
@@ -137,14 +137,14 @@ public function setString (newString:String) :String
 	this.updateAtlasValues();
 
 	var s :CGSize = new CGSize (len * itemWidth_, itemHeight_);
-	this.setContentSizeInPixels ( s );
+	this.set_contentSizeInPixels ( s );
 	
 	this.quadsToDraw = len;
 	
 	return string_;
 }
 
-public function getString () :String
+public function get_string () :String
 {
 	return string_;
 }

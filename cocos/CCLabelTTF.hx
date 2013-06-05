@@ -96,11 +96,11 @@ public function initWithString (str:String,
 public function set_string ( str:String ) :String
 {trace("set string "+str);
 	var tex :CCTexture2D = new CCTexture2D().initWithString (str, dimensions_, alignment_, lineBreakMode_, fontName_, fontSize_ );
-	this.setTexture ( tex );
+	this.set_texture ( tex );
 
 	var rect = new CGRect(0,0,0,0);
 		rect.size = texture.contentSize;
-	this.setTextureRect ( rect );
+	this.set_textureRect ( rect );
 	
 	return string;
 }

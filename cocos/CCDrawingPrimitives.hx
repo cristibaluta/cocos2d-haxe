@@ -175,7 +175,7 @@ public static function ccDrawCircle( center:CGPoint, r:Float, a:Float, segs:Int,
 	if (drawLineToCenter)
 		additionalSegment++;
 
-	var coef :Float = CCMacros.M_PI_2/segs;
+	var coef :Float = CCMacros.M_PI_2()/segs;
 	
 	var vertices :Float = calloc( sizeof(Float)*2*(segs+2), 1);
 	if( ! vertices )

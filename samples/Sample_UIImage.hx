@@ -12,7 +12,7 @@ class Sample_UIImage {
 	
 	public function new(){
 		var uiimage = new UIImage().initWithContentsOfFile("grossini.png");
-		uiimage.onComplete = callback (onComplete, uiimage);
+		uiimage.onComplete = onComplete.bind(uiimage);
 		//flash.Lib.current.addChild ( new flash.display.Bitmap ( new Girl(0,0)));
 	}
 	function onComplete(uiimage:UIImage) {
@@ -20,7 +20,7 @@ class Sample_UIImage {
 	}
 	
 	public static function main(){
-		haxe.Firebug.redirectTraces();
+		cocos.support.CCLog.redirectTraces();
 		flash.Lib.current.stage.scaleMode = flash.display.StageScaleMode.NO_SCALE;
 		flash.Lib.current.stage.align = flash.display.StageAlign.TOP_LEFT;
 		new Sample_UIImage();

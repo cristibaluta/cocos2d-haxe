@@ -107,10 +107,10 @@ public function step (dt:Float) :Void
 			return;
 		
 		var tempPos :CGPoint = CGPointExtension.sub( halfScreenSize, followedNode_.position);
-		target_.setPosition ( new CGPoint (clampf(tempPos.x,leftBoundary,rightBoundary), clampf(tempPos.y,bottomBoundary,topBoundary)) );
+		target_.set_position ( new CGPoint (clampf(tempPos.x,leftBoundary,rightBoundary), clampf(tempPos.y,bottomBoundary,topBoundary)) );
 	}
 	else
-		target_.setPosition ( CGPointExtension.sub( halfScreenSize, followedNode_.position ));
+		target_.set_position ( CGPointExtension.sub( halfScreenSize, followedNode_.position ));
 }
 
 

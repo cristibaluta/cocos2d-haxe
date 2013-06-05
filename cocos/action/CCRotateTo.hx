@@ -46,6 +46,6 @@ public function startWithTarget:(CCNode *)aTarget
 }
 function update (t:Float) :Void
 {
-	target_.setRotation: startAngle_ + diffAngle_ * t];
+	target_.set_rotation: startAngle_ + diffAngle_ * t];
 }
 }

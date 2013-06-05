@@ -20,7 +20,7 @@ class Sample_NSDictionary {
 	}
 	
 	public static function main(){
-		haxe.Firebug.redirectTraces();
+		cocos.support.CCLog.redirectTraces();
 		new Sample_NSDictionary();
 	}
 }

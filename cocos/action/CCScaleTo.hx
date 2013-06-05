@@ -62,8 +62,8 @@ override public function startWithTarget(aTarget:Dynamic)
 
 override function update (t:Float) :Void
 {
-	target_.setScaleX ( startScaleX_ + deltaX_ * t );
-	target_.setScaleY ( startScaleY_ + deltaY_ * t );
+	target_.set_scaleX ( startScaleX_ + deltaX_ * t );
+	target_.set_scaleY ( startScaleY_ + deltaY_ * t );
 }
 }
 

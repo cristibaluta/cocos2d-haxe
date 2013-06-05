@@ -36,23 +36,23 @@ override public function copy () :CCActionInterval
 override public function startWithTarget (aTarget:Dynamic )
 {
 	super.startWithTarget ( aTarget );
-	startPosition_ = cast (target_, CCNode).getPosition();
+	startPosition_ = cast (target_, CCNode).get_position();
 }
 
 override function update (t:Float) :Void
 {
 	// Sin jump. Less realistic
-//	var y :Float = height_ * Math.abs( Math.sin(t * CCMacros.M_PI * jumps_ ) );
+//	var y :Float = height_ * Math.abs( Math.sin(t * CCMacros.M_PI() * jumps_ ) );
 //	y += delta.y * t;
 //	var x :Float = delta.x * t;
-//	target.setPosition: new CGPoint ( startPosition.x + x, startPosition.y + y );	
+//	target.set_position: new CGPoint ( startPosition.x + x, startPosition.y + y );	
 	
 	// parabolic jump (since v0.8.2)
 	var frac :Float = (t * jumps_) % 1.0; //fmodf( t * jumps_, 1.0 );
 	var y :Float = height_ * 4 * frac * (1 - frac);
 	y += delta_.y * t;
 	var x :Float = delta_.x * t;
-	target_.setPosition ( new CGPoint ( startPosition_.x + x, startPosition_.y - y ) );
+	target_.set_position ( new CGPoint ( startPosition_.x + x, startPosition_.y - y ) );
 	
 }
 

@@ -507,7 +507,7 @@ public function parser2 (parser:Xml, elementName:String, namespaceURI:String, qN
 		} else
 			layer.tiles = buffer;
 		
-		currentString.setString ( "" );*/
+		currentString.set_string ( "" );*/
 			
 /*	} else if (elementName == "map") {
 		// The map element has ended

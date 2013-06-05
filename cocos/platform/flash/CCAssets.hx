@@ -32,12 +32,12 @@ class CCAssets {
 	
 	var loadedFiles :Int;
 	var expectedFiles :Int;
-	var cache :Hash<Dynamic>;
+	var cache :Map<String,Dynamic>;
 	
 	public function new(){
 		loadedFiles = 0;
 		expectedFiles = 0;
-		cache = new Hash<Dynamic>();
+		cache = new Map<String,Dynamic>();
 	}
 	
 	public function loadRemoteFile (filepath:String) {

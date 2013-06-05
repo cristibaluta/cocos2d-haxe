@@ -121,7 +121,7 @@ public function initTexCoordsWithRect ( pointRect:CGRect )
 }
 
 /** Sets a new CCSpriteFrame as particle.
- WARNING: this method is experimental. Use setTexture:withRect instead.
+ WARNING: this method is experimental. Use set_texture:withRect instead.
  @since v0.99.4
  */
 public function setDisplayFrame (spriteFrame:CCSpriteFrame)
@@ -131,17 +131,17 @@ public function setDisplayFrame (spriteFrame:CCSpriteFrame)
 
 	// update texture before updating texture rect
 	if ( spriteFrame.texture.name != texture_.name )
-		this.setTexture(spriteFrame.texture);	
+		this.set_texture(spriteFrame.texture);	
 }
 
 /** Sets a new texture with a rect. The rect is in Points.
  @since v0.99.4
  */
-public function setTexture (texture:CCTexture2D, ?rect:CGRect) :Void
+public function set_texture (texture:CCTexture2D, ?rect:CGRect) :Void
 {
 	// Only update the texture if is different from the current one
 	if( texture.name != texture_.name )
-		super.setTexture ( texture );
+		super.set_texture ( texture );
 
 	if (rect == null) {
 		var s:CGSize = texture.contentSize;

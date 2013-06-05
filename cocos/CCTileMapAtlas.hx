@@ -83,7 +83,7 @@ public function initWithTileFile (tile:String, map:String, tileWidth:Int, tileHe
 	posToAtlasIndex = NSDictionary.dictionaryWithCapacity ( itemsToRender );
 
 	this.updateAtlasValues();
-	this.setContentSize ( new CGSize(tgaInfo.width*itemWidth_, tgaInfo.height*itemHeight_) );
+	this.set_contentSize ( new CGSize(tgaInfo.width*itemWidth_, tgaInfo.height*itemHeight_) );
 
 	return this;
 }

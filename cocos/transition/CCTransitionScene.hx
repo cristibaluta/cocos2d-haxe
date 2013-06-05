@@ -141,16 +141,16 @@ override public function draw ()
 public function finish ()
 {
 	/* clean up */	
-	inScene_.setVisible ( true );
-	inScene_.setPosition ( new CGPoint (0,0) );
-	inScene_.setScale ( 1.0 );
-	inScene_.setRotation ( 0.0 );
+	inScene_.set_visible ( true );
+	inScene_.set_position ( new CGPoint (0,0) );
+	inScene_.set_scale ( 1.0 );
+	inScene_.set_rotation ( 0.0 );
 	inScene_.camera.restore();
 	
-	outScene_.setVisible ( false );
-	outScene_.setPosition ( new CGPoint (0,0) );
-	outScene_.setScale ( 1.0 );
-	outScene_.setRotation ( 0.0 );
+	outScene_.set_visible ( false );
+	outScene_.set_position ( new CGPoint (0,0) );
+	outScene_.set_scale ( 1.0 );
+	outScene_.set_rotation ( 0.0 );
 	outScene_.camera.restore();
 	
 //	this.schedule:@selector(setNewScene:) interval ( 0 );
@@ -177,13 +177,13 @@ public function setNewScene ( dt:Float )
 #end
 	
 	// issue #267
-	outScene_.setVisible ( true );	
+	outScene_.set_visible ( true );	
 }
 
 public function hideOutShowIn ()
 {
-	inScene_.setVisible ( true );
-	outScene_.setVisible ( false );
+	inScene_.set_visible ( true );
+	outScene_.set_visible ( false );
 }
 
 // custom onEnter

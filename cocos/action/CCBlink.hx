@@ -29,7 +29,7 @@ override function update (t:Float) :Void
 	if( ! this.isDone() ) {
 		var slice :Float = 1.0 / times_;
 		var m :Float = t % slice;
-		target_.setVisible (m > slice/2) ? true : false;
+		target_.set_visible (m > slice/2) ? true : false;
 	}
 }
 

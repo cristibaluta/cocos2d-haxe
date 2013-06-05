@@ -62,33 +62,33 @@ public function initWithColor (color:CC_Color4B, ?w:Null<Float>, ?h:Null<Float>)
 	}
 	
 	this.updateColor();
-	this.setContentSize ( new CGSize(w, h) );
+	this.set_contentSize ( new CGSize(w, h) );
 	
 	return this;
 }
 
 
 // override contentSize
-public function setContentSize (size:CGSize)
+public function set_contentSize (size:CGSize)
 {
 	squareVertices_[1].x = size.width * CCConfig.CC_CONTENT_SCALE_FACTOR;
 	squareVertices_[2].y = size.height * CCConfig.CC_CONTENT_SCALE_FACTOR;
 	squareVertices_[3].x = size.width * CCConfig.CC_CONTENT_SCALE_FACTOR;
 	squareVertices_[3].y = size.height * CCConfig.CC_CONTENT_SCALE_FACTOR;
 	
-	super.setContentSize(size);
+	super.set_contentSize(size);
 }
 
 public function changeWidth (w:Float, ?h:Null<Float>) :Void
 {
 	if (h == null)
 		h = contentSize_.height;
-	this.setContentSize ( new CGSize (w, h) );
+	this.set_contentSize ( new CGSize (w, h) );
 }
 
 public function changeHeight (h:Float)
 {
-	this.setContentSize ( new CGSize (contentSize_.width, h) );
+	this.set_contentSize ( new CGSize (contentSize_.width, h) );
 }
 
 public function updateColor ()
@@ -145,7 +145,7 @@ public function set_color (color:CC_Color3B) :CC_Color3B
 	return color_;
 }
 
-public function setOpacity (o:Float) :Float
+public function set_opacity (o:Float) :Float
 {
 	opacity_ = o;
 	this.updateColor();

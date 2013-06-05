@@ -71,16 +71,16 @@ public function setLabel (label:CCNode) :CCNode
 		label_ = label;
 		label_.anchorPoint = new CGPoint (0,0);
 
-		this.setContentSize ( label_.contentSize );
+		this.set_contentSize ( label_.contentSize );
 	}
 	return label;
 }
 
 /** sets a new string to the inner label */
-public function setString (string:String)
+public function set_string (string:String)
 {
-	//label_.setString ( string );
-	this.setContentSize ( label_.contentSize );
+	//label_.set_string ( string );
+	this.set_contentSize ( label_.contentSize );
 }
 
 override public function activate ()
@@ -140,9 +140,9 @@ public function setIsEnabled ( enabled:Bool )
 	isEnabled = enabled;
 }
 
-public function setOpacity ( opacity:Float )
+public function set_opacity ( opacity:Float )
 {
-	//label_.setOpacity ( opacity );
+	//label_.set_opacity ( opacity );
 }
 public function opacity () :Float
 {

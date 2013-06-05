@@ -156,30 +156,30 @@ class CCDirector
  @since v0.99.5
  */
 /** The current running Scene. Director can only run one Scene at the time */
-public var runningScene (get_runningScene, null) :CCScene;
+public var runningScene (get, null) :CCScene;
 /** The FPS value */
-public var animationInterval (get_animationInterval, set_animationInterval) :Float;
+public var animationInterval (get, set) :Float;
 /** Whether or not to display the FPS on the bottom-left corner */
-public var displayFPS (get_displayFPS, setDisplayFPS) :Bool;
+public var displayFPS (get, set) :Bool;
 /** The 'OpenGLView', where everything is rendered */
-public var view (get_view, setView) :CC_VIEW;
+public var view (get, set) :CC_VIEW;
 /** whether or not the next delta time will be zero */
-public var nextDeltaTimeZero (get_nextDeltaTimeZero, setNextDeltaTimeZero) :Bool;
+public var nextDeltaTimeZero (get, set) :Bool;
 /** Whether or not the Director is paused */
-public var isPaused (get_isPaused, null) :Bool;
+public var isPaused (get, null) :Bool;
 /** Sets an OpenGL projection
  @since v0.8.2
  */
-public var projection (get_projection, setProjection) :CC_DirectorProjection;
+public var projection (get, set) :CC_DirectorProjection;
 /** How many frames were called since the director started */
-public var totalFrames (get_totalFrames, null) :Int;
+public var totalFrames (get, null) :Int;
 
 /** Whether or not the replaced scene will receive the cleanup message.
  If the new scene is pushed, then the old scene won't receive the "cleanup" message.
  If the new scene replaces the old one, the it will receive the "cleanup" message.
  @since v0.99.0
  */
-public var sendCleanupToScene (get_sendCleanupToScene, null) :Bool;
+public var sendCleanupToScene (get, null) :Bool;
 
 /** This object will be visited after the main scene is visited.
  This object MUST implement the "visit" selector.
@@ -279,16 +279,16 @@ public function setDefaultValues ()
 	// This method SHOULD be called only after view_ was initialized
 	if ( view_ == null) throw "view_ must be initialized";
 
-	this.setAlphaBlending( true );
-	this.setDepthTest( true );
-	this.setProjection( projection_ );
+	this.set_alphaBlending( true );
+	this.set_depthTest( true );
+	this.set_projection( projection_ );
 	
 #if CC_DIRECTOR_FAST_FPS
     if (FPSLabel_ == null) {
 		var currentFormat :CCTexture2DPixelFormat = CCTexture2D defaultAlphaPixelFormat();
-		CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA4444();
+		CCTexture2D.set_defaultAlphaPixelFormat ( kCCTexture2DPixelFormat_RGBA4444 );
 		FPSLabel_ = CCLabelAtlas labelWithString:"00.0" charMapFile:"fps_images.png" itemWidth:16 itemHeight:24 startCharMap:'.'] retain();
-		CCTexture2D.setDefaultAlphaPixelFormat ( currentFormat );		
+		CCTexture2D.set_defaultAlphaPixelFormat ( currentFormat );		
 	}
 #end	// CC_DIRECTOR_FAST_FPS*/
 }
@@ -339,18 +339,18 @@ public function get_projection () :CC_DirectorProjection
 	return projection_;
 }
 
-public function setProjection (projection:CC_DirectorProjection) :CC_DirectorProjection
+public function set_projection (projection:CC_DirectorProjection) :CC_DirectorProjection
 {
 	trace("cocos2d: override me");
 	return null;
 }
 
-public function getZEye () :Float
+public function get_zEye () :Float
 {
 	return ( winSizeInPixels_.height / 1.1566 );
 }
 
-public function setAlphaBlending (on:Bool) :Bool
+public function set_alphaBlending (on:Bool) :Bool
 {
 /*	if (on) {
 		glEnable(GL.BLEND);
@@ -361,7 +361,7 @@ public function setAlphaBlending (on:Bool) :Bool
 	return on;
 }
 
-public function setDepthTest (on:Bool) :Bool
+public function set_depthTest (on:Bool) :Bool
 {
 /*	if (on) {
 		ccglClearDepth(1.0);
@@ -380,7 +380,7 @@ public function get_view () :CC_VIEW
 	return view_;
 }
 
-public function setView (v:CC_VIEW) :CC_VIEW
+public function set_view (v:CC_VIEW) :CC_VIEW
 	{trace("setView "+v);
 	if ( v == null) throw "View must be non-null";
 
@@ -401,7 +401,7 @@ function get_sendCleanupToScene () :Bool {
 function get_nextDeltaTimeZero () :Bool {
 	return nextDeltaTimeZero_;
 }
-public function setNextDeltaTimeZero (b:Bool) :Bool {
+public function set_nextDeltaTimeZero (b:Bool) :Bool {
 	return nextDeltaTimeZero_ = b;
 }
 function get_isPaused () :Bool {
@@ -423,7 +423,7 @@ function get_runningScene () :CCScene {
 function get_displayFPS () :Bool {
 	return displayFPS_;
 }
-public function setDisplayFPS (b:Bool) :Bool {
+public function set_displayFPS (b:Bool) :Bool {
 	return displayFPS_ = b;
 }
 
@@ -459,7 +459,7 @@ public function displaySizeInPixels () :CGSize
 public function reshapeProjection (newWindowSize:CGSize) :Void
 {
 	winSizeInPixels_ = winSizeInPoints_ = newWindowSize;
-	this.setProjection ( projection_ );
+	this.set_projection ( projection_ );
 }
 
 // Director Scene Management
@@ -636,7 +636,7 @@ public function showFPS ()
 		frames_ = 0;
 		accumDt_ = 0;
 		
-		FPSLabel_.setString ( Std.string (frameRate_) );
+		FPSLabel_.set_string ( Std.string (frameRate_) );
 	}
 
 	FPSLabel_.draw();

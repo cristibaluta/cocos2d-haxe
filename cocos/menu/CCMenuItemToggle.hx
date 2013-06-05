@@ -66,7 +66,7 @@ public function setSelectedIndex ( index:Int )
 		this.addChild ( item, 0, kCurrentItem );
 		
 		var s :CGSize = item.contentSize;
-		this.setContentSize: s];
+		this.set_contentSize: s];
 		item.position = new CGPoint ( s.width/2, s.height/2 );
 	}
 }
@@ -115,11 +115,11 @@ public function selectedItem () :CCMenuItem
 
 // CCMenuItemToggle - CCRGBAProtocol protocol
 
-public function setOpacity ( opacity:Float )
+public function set_opacity ( opacity:Float )
 {
 	opacity_ = opacity;
 	for(CCMenuItem<CCRGBAProtocol>* item in subItems_)
-		item.setOpacity ( opacity );
+		item.set_opacity ( opacity );
 }
 
 public function setColor ( color:CC_Color3B )

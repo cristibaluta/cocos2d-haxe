@@ -73,8 +73,8 @@ public function startWithTarget:(CCNode *)aTarget
 
 function update (t:Float) :Void
 {
-	target_.setSkewX: (startSkewX_ + deltaX_ * t ) ];
-	target_.setSkewY: (startSkewY_ + deltaY_ * t ) ];
+	target_.set_skewX: (startSkewX_ + deltaX_ * t ) ];
+	target_.set_skewY: (startSkewY_ + deltaY_ * t ) ];
 }
 
 }

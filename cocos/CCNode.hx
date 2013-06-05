@@ -75,10 +75,10 @@ var inverse_ :CGAffineTransform;
 
 var vertexZ_ :Float;// openGL real Z vertex
 var camera_ :CCCamera;
-public var camera (getCamera, null) :CCCamera;
+public var camera (get, null) :CCCamera;
 public var children_ :Array<CCNode>;// array of children
 public var parent :CCNode;// weakref to parent
-var userData_ :Void;
+var userData_ :Void->Void;
 var visible_ :Bool;
 
 // To reduce memory, place Bools that are not properties here:
@@ -86,30 +86,30 @@ var isTransformDirty_ :Bool;
 var isInverseDirty_ :Bool;
 
 //public var children (default, setChildren) :CCNode;
-public var visible (getVisible, setVisible) :Bool;
+public var visible (get, set) :Bool;
 public var grid :CCGridBase;
 public var zOrder :Int;
 public var tag :Int;// a tag. any number you want to assign to the node
-public var vertexZ (default, setVertexZ) :Float;
+public var vertexZ (default, set) :Float;
 public var isRunning :Bool;
-public var userData :Void;
+public var userData :Void->Void;
 public var view_ :Sprite;
 
 // CCNode - Transform related properties
 
-public var rotation (default, setRotation) :Float;
-public var scaleX (default, setScaleX) :Float;
-public var scaleY (default, setScaleY) :Float;
-public var skewX (default, setSkewX) :Null<Float>;
-public var skewY (default, setSkewY) :Null<Float>;
-public var position (getPosition, setPosition) :CGPoint;
-public var positionInPixels (getPositionInPixels, setPositionInPixels) :CGPoint;
-public var anchorPoint (default, setAnchorPoint) :CGPoint;
-public var anchorPointInPixels (getAnchorPointInPixels, null) :CGPoint;
+public var rotation (default, set) :Float;
+public var scaleX (default, set) :Float;
+public var scaleY (default, set) :Float;
+public var skewX (default, set) :Null<Float>;
+public var skewY (default, set) :Null<Float>;
+public var position (get, set) :CGPoint;
+public var positionInPixels (get, set) :CGPoint;
+public var anchorPoint (default, set) :CGPoint;
+public var anchorPointInPixels (get, null) :CGPoint;
 // untransformed size of the node
-public var contentSize (getContentSize, setContentSize) :CGSize;
-public var contentSizeInPixels (getContentSizeInPixels, setContentSizeInPixels) :CGSize;
-public var isRelativeAnchorPoint (default, setIsRelativeAnchorPoint) :Bool;
+public var contentSize (get, set) :CGSize;
+public var contentSizeInPixels (get, set) :CGSize;
+public var isRelativeAnchorPoint (default, set) :Bool;
 
 
 
@@ -120,7 +120,7 @@ public function new () {
 	view_.graphics.endFill();*/
 }
 
-public function setSkewX(newSkewX:Null<Float>):Null<Float>
+public function set_skewX(newSkewX:Null<Float>):Null<Float>
 {
 	skewX = newSkewX;
 	isTransformDirty_ = isInverseDirty_ = true;
@@ -130,7 +130,7 @@ public function setSkewX(newSkewX:Null<Float>):Null<Float>
 	return skewX;
 }
 
-public function setSkewY (newSkewY:Null<Float>) :Null<Float>
+public function set_skewY (newSkewY:Null<Float>) :Null<Float>
 {
 	skewY = newSkewY;
 	isTransformDirty_ = isInverseDirty_ = true;
@@ -143,7 +143,7 @@ public function setSkewY (newSkewY:Null<Float>) :Null<Float>
 
 // getters explicit, setters explicit
 
-function setRotation (newRotation:Float) :Float
+function set_rotation (newRotation:Float) :Float
 {
 	rotation = newRotation;
 	isTransformDirty_ = isInverseDirty_ = true;
@@ -153,7 +153,7 @@ function setRotation (newRotation:Float) :Float
 	return rotation;
 }
 
-function setScaleX (newScaleX:Float) :Float
+function set_scaleX (newScaleX:Float) :Float
 {
 	scaleX = newScaleX;
 	isTransformDirty_ = isInverseDirty_ = true;
@@ -163,7 +163,7 @@ function setScaleX (newScaleX:Float) :Float
 	return scaleX;
 }
 
-function setScaleY (newScaleY:Float) :Float
+function set_scaleY (newScaleY:Float) :Float
 {
 	scaleY = newScaleY;
 	isTransformDirty_ = isInverseDirty_ = true;
@@ -173,7 +173,7 @@ function setScaleY (newScaleY:Float) :Float
 	return scaleY;
 }
 
-public function setPosition (newPosition:CGPoint) :CGPoint
+public function set_position (newPosition:CGPoint) :CGPoint
 {
 	trace("setPosition "+newPosition);
 	position_ = newPosition;
@@ -187,13 +187,13 @@ public function setPosition (newPosition:CGPoint) :CGPoint
 	
 	return position_;
 }
-public function getPosition () :CGPoint
+public function get_position () :CGPoint
 {
 	trace("getPosition "+position_);
 	return position_;
 }
 
-function setPositionInPixels (newPosition:CGPoint) :CGPoint
+function set_positionInPixels (newPosition:CGPoint) :CGPoint
 {trace("setPositionInPixels "+newPosition);
 	positionInPixels_ = newPosition;
 
@@ -206,12 +206,12 @@ function setPositionInPixels (newPosition:CGPoint) :CGPoint
 	
 	return positionInPixels_;
 }
-public function getPositionInPixels () :CGPoint
+public function get_positionInPixels () :CGPoint
 {
 	return positionInPixels_;
 }
 
-function setIsRelativeAnchorPoint (newValue:Bool) :Bool
+function set_isRelativeAnchorPoint (newValue:Bool) :Bool
 {
 	isRelativeAnchorPoint_ = newValue;
 	isTransformDirty_ = isInverseDirty_ = true;
@@ -221,7 +221,7 @@ function setIsRelativeAnchorPoint (newValue:Bool) :Bool
 	return isRelativeAnchorPoint_;
 }
 
-function setAnchorPoint (point:CGPoint) :CGPoint
+function set_anchorPoint (point:CGPoint) :CGPoint
 {
 	if( ! point.equalToPoint (anchorPoint_) ) {
 		anchorPoint_ = point;
@@ -233,12 +233,12 @@ function setAnchorPoint (point:CGPoint) :CGPoint
 	}
 	return point;
 }
-function getAnchorPointInPixels () :CGPoint
+function get_anchorPointInPixels () :CGPoint
 {
 	return anchorPointInPixels_;
 }
 
-function setContentSize (size:CGSize) :CGSize
+function set_contentSize (size:CGSize) :CGSize
 {
 	if (size == null) throw "New contentSize must not be null";
 	if( ! size.equalToSize ( contentSize_ ) ) {
@@ -254,11 +254,11 @@ function setContentSize (size:CGSize) :CGSize
 	}
 	return size;
 }
-function getContentSize () :CGSize {
+function get_contentSize () :CGSize {
 	return contentSize_;
 }
 
-function setContentSizeInPixels (size:CGSize) :CGSize
+function set_contentSizeInPixels (size:CGSize) :CGSize
 {
 	if( ! size.equalToSize ( contentSizeInPixels_ ) ) {
 		contentSizeInPixels_ = size;
@@ -270,7 +270,7 @@ function setContentSizeInPixels (size:CGSize) :CGSize
 	}
 	return size;
 }
-function getContentSizeInPixels () :CGSize {
+function get_contentSizeInPixels () :CGSize {
 	return contentSizeInPixels_;
 }
 
@@ -286,33 +286,33 @@ public function boundingBoxInPixels() :CGRect
 	return rect;
 }
 
-function setVertexZ (vertexZ:Float) :Float
+function set_vertexZ (vertexZ:Float) :Float
 {
 	return vertexZ_ = vertexZ * CCConfig.CC_CONTENT_SCALE_FACTOR;
 }
 
-public function getVertexZ () :Float
+public function get_vertexZ () :Float
 {
 	return vertexZ_ / CCConfig.CC_CONTENT_SCALE_FACTOR;
 }
 
-public function getScale () :Float
+public function get_scale () :Float
 {
 	if (scaleX != scaleY) throw "CCNode#scale. ScaleX != ScaleY. Don't know which one to return";
 	return scaleX;
 }
 
-function setScale (s:Float) :Float
+function set_scale (s:Float) :Float
 {
 	scaleX = scaleY = s;
 	isTransformDirty_ = isInverseDirty_ = true;
 	
 	return s;
 }
-function getVisible () :Bool {
+function get_visible () :Bool {
 	return visible_;
 }
-function setVisible (v:Bool) :Bool {
+function set_visible (v:Bool) :Bool {
 	return visible_ = v;
 }
 
@@ -395,7 +395,7 @@ function childrenAlloc () :Void
 }
 
 // camera: lazy alloc
-function getCamera () :CCCamera
+function get_camera () :CCCamera
 {
 	if( camera_ == null ) {
 		camera_ = new CCCamera().init();

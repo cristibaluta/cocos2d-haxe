@@ -91,9 +91,9 @@ function addGrossini(){
 	
 	var s = CCDirector.sharedDirector().winSize();
 	
-	grossini.setPosition ( new CGPoint (s.width/2-100, s.height/3) );
-	tamara.setPosition ( new CGPoint (s.width/2, 2*s.height/3) );
-	kathia.setPosition ( new CGPoint (s.width/2+100, s.height/2) );
+	grossini.set_position ( new CGPoint (s.width/2-100, s.height/3) );
+	tamara.set_position ( new CGPoint (s.width/2, 2*s.height/3) );
+	kathia.set_position ( new CGPoint (s.width/2+100, s.height/2) );
 	
 	//flash.Lib.current.stage.addEventListener (flash.events.MouseEvent.CLICK, startActions);
 	testActions();

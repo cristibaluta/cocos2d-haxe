@@ -187,7 +187,7 @@ public function set_opacity (anOpacity:Float) :Float
 	return opacity_;
 }
 
-public function setOpacityModifyRGB (modify:Bool) :Bool
+public function set_opacityModifyRGB (modify:Bool) :Bool
 {
 	var oldColor :CC_Color3B = this.color;
 	opacityModifyRGB_ = modify;

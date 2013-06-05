@@ -600,12 +600,12 @@ public function initWithTotalParticles ( numberOfParticles:Int ) :CCParticleSyst
 #end
 	
 	// Optimization: compile udpateParticle method
-	updateParticleSel = updateQuadWithParticle(null, null);
+	//updateParticleSel = updateQuadWithParticle(null, null);
 	//updateParticleImp = this.methodForSelector ( updateParticleSel );
-
+	
 	// udpate after action in run!
 	this.scheduleUpdateWithPriority ( 1 );
-
+	
 	return this;
 }
 

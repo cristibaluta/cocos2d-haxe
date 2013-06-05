@@ -46,10 +46,10 @@ class CCSpriteFrame
 {
 
 /** rect of the frame in points. If it is updated, then rectInPixels will be updated too. */
-public var rect (default, setRect) :CGRect;
+public var rect (default, set_rect) :CGRect;
 
 /** rect of the frame in pixels. If it is updated, then rect (points) will be udpated too. */
-public var rectInPixels (default, setRectInPixels) :CGRect;
+public var rectInPixels (default, set_rectInPixels) :CGRect;
 
 /** whether or not the rect of the frame is rotated ( x = x+width, y = y+height, width = height, height = width ) */
 public var rotated :Bool;
@@ -104,14 +104,14 @@ public function release ()
 	texture.release();
 }
 
-public function setRect ( r:CGRect ) :CGRect
+public function set_rect ( r:CGRect ) :CGRect
 {
 	rect = r;
 	rectInPixels = CCMacros.CC_RECT_POINTS_TO_PIXELS( r );
 	return rect;
 }
 
-public function setRectInPixels ( r:CGRect ) :CGRect
+public function set_rectInPixels ( r:CGRect ) :CGRect
 {
 	rectInPixels = r;
 	rect = CCMacros.CC_RECT_PIXELS_TO_POINTS( r );

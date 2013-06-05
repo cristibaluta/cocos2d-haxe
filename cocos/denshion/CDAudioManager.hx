@@ -240,7 +240,7 @@ static Bool configured = false;
 
 -(Bool) audioSessionSetActive:(Bool) active {
 	var activationError :NSError = null;
-	if ([AVAudioSession.sharedInstance] setActive:active error:&activationError]) {
+	if ([AVAudioSession.sharedInstance] set_active:active error:&activationError]) {
 		_audioSessionActive = active;
 		trace("Denshion::CDAudioManager - Audio session set active %i succeeded", active); 
 		return true;

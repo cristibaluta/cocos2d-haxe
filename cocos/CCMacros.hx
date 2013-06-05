@@ -30,8 +30,8 @@ import cocos.support.CGRect;
 
 class CCMacros
 {
-inline public static var M_PI = Math.PI;
-inline public static var M_PI_2 = Math.PI*2;
+inline public static function M_PI () return Math.PI;
+inline public static function M_PI_2 () return Math.PI*2;
 
 
 /** @def CC_SWAP

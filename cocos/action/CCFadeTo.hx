@@ -33,6 +33,6 @@ override public function startWithTarget(aTarget:Dynamic)
 
 override function update (t:Float) :Void
 {
-	target_.setOpacity (fromOpacity_ + ( toOpacity_ - fromOpacity_ ) * t);
+	target_.set_opacity (fromOpacity_ + ( toOpacity_ - fromOpacity_ ) * t);
 }
 }

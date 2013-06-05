@@ -40,7 +40,7 @@ override public function update (t:Float) :Void
 /*	trace(delta_);*/
 	if (target_ != null)
 	try {
-		target_.setPosition ( new CGPoint ( (startPosition_.x + delta_.x * t ), (startPosition_.y + delta_.y * t)));
+		target_.set_position ( new CGPoint ( (startPosition_.x + delta_.x * t ), (startPosition_.y + delta_.y * t)));
 	}
 	catch(e:Dynamic){trace(e);}
 }

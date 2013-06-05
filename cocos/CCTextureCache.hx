@@ -43,7 +43,7 @@ using cocos.support.CCFileUtils;// removeHDSuffixFromFile
  */
 class CCTextureCache
 {
-var textures_ :Hash<CCTexture2D>;
+var textures_ :Map<String,CCTexture2D>;
 
 
 /** Retruns ths shared instance of the cache */
@@ -187,7 +187,7 @@ inline public function textureForKey (key:String) :CCTexture2D
  */
 public function removeAllTextures ()
 {
-	textures_ = new Hash<CCTexture2D>();
+	textures_ = new Map<String,CCTexture2D>();
 }
 
 
@@ -232,7 +232,7 @@ inline public function removeTextureForKey ( name:String )
 public function new () {}
 public function init () :CCTextureCache
 {
-	textures_ = new Hash<CCTexture2D>();
+	textures_ = new Map<String,CCTexture2D>();
 	return this;
 }
 

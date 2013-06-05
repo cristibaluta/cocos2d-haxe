@@ -10,7 +10,7 @@ public function onEnter ()
 	super.onEnter();
 	
 	CCActionInterval *inA, *outA;
-	inScene_.setVisible ( false );
+	inScene_.set_visible ( false );
 	
 	var inDeltaZ :Float, inAngleZ :Float;
 	var outDeltaZ :Float, outAngleZ :Float;

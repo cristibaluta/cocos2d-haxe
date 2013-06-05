@@ -80,7 +80,7 @@ function update (t:Float) :Void
 	
 	var x :Float = bezierat(xa, xb, xc, xd, t);
 	var y :Float = bezierat(ya, yb, yc, yd, t);
-	target_.setPosition:  ccpAdd( startPosition_, new CGPoint (x,y));
+	target_.set_position:  ccpAdd( startPosition_, new CGPoint (x,y));
 }
 
 public function reverse () :CCActionInterval

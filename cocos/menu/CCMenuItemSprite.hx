@@ -58,7 +58,7 @@ public function initFromNormalSprite:(CCNode<CCRGBAProtocol>*)normalSprite selec
 		this.selectedImage = selectedSprite;
 		this.disabledImage = disabledSprite;
 		
-		this.setContentSize: normalImage_.contentSize]];
+		this.set_contentSize: normalImage_.contentSize]];
 	}
 	return this;	
 }
@@ -104,11 +104,11 @@ public function setDisabledImage (image:CCNode)
 }
 
 // CCMenuItemImage - CCRGBAProtocol protocol
-public function setOpacity ( opacity:Float )
+public function set_opacity ( opacity:Float )
 {
-	normalImage_.setOpacity ( opacity );
-	selectedImage_.setOpacity ( opacity );
-	disabledImage_.setOpacity ( opacity );
+	normalImage_.set_opacity ( opacity );
+	selectedImage_.set_opacity ( opacity );
+	disabledImage_.set_opacity ( opacity );
 }
 
 public function setColor ( color:CC_Color3B )
@@ -133,24 +133,24 @@ public function selected ()
 	super.selected();
 
 	if( selectedImage_ ) {
-		normalImage_.setVisible ( false );
-		selectedImage_.setVisible ( true );
-		disabledImage_.setVisible ( false );
+		normalImage_.set_visible ( false );
+		selectedImage_.set_visible ( true );
+		disabledImage_.set_visible ( false );
 		
 	} else { // there is not selected image
 	
-		normalImage_.setVisible ( true );
-		selectedImage_.setVisible ( false );
-		disabledImage_.setVisible ( false );		
+		normalImage_.set_visible ( true );
+		selectedImage_.set_visible ( false );
+		disabledImage_.set_visible ( false );		
 	}
 }
 
 public function unselected ()
 {
 	super.unselected();
-	normalImage_.setVisible ( true );
-	selectedImage_.setVisible ( false );
-	disabledImage_.setVisible ( false );
+	normalImage_.set_visible ( true );
+	selectedImage_.set_visible ( false );
+	disabledImage_.set_visible ( false );
 }
 
 public function setIsEnabled ( enabled:Bool )
@@ -158,19 +158,19 @@ public function setIsEnabled ( enabled:Bool )
 	super.setIsEnabled ( enabled );
 
 	if( enabled ) {
-		normalImage_.setVisible ( true );
-		selectedImage_.setVisible ( false );
-		disabledImage_.setVisible ( false );
+		normalImage_.set_visible ( true );
+		selectedImage_.set_visible ( false );
+		disabledImage_.set_visible ( false );
 
 	} else {
 		if( disabledImage_ ) {
-			normalImage_.setVisible ( false );
-			selectedImage_.setVisible ( false );
-			disabledImage_.setVisible ( true );		
+			normalImage_.set_visible ( false );
+			selectedImage_.set_visible ( false );
+			disabledImage_.set_visible ( true );		
 		} else {
-			normalImage_.setVisible ( true );
-			selectedImage_.setVisible ( false );
-			disabledImage_.setVisible ( false );
+			normalImage_.set_visible ( true );
+			selectedImage_.set_visible ( false );
+			disabledImage_.set_visible ( false );
 		}
 	}
 }

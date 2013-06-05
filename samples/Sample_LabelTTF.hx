@@ -19,14 +19,14 @@ class Sample_LabelTTF extends flash.display.MovieClip {
 		}
 		catch(e:Dynamic){
 			trace(e);
-			var stack = haxe.Stack.exceptionStack();
-			trace ( haxe.Stack.toString ( stack ) );
+			//var stack = haxe.Stack.exceptionStack();
+			//trace ( haxe.Stack.toString ( stack ) );
 		}
 		trace("fin");
 	}
 	
 	public static function main(){
-		haxe.Firebug.redirectTraces();
+		cocos.support.CCLog.redirectTraces();
 		flash.Lib.current.addChild ( new Sample_LabelTTF() );
 	}
 }

@@ -71,11 +71,11 @@ inline static var kProgressTextureCoords = 0x1e;
 
 
 /**	Change the percentage to change progress. */
-public var type (get_type, set_type) :CCProgressTimerType;
+public var type (get, set) :CCProgressTimerType;
 /** Percentages are from 0 to 100 */
-public var percentage (getPercentage, setPercentage) :Float;
+public var percentage (get, set) :Float;
 /** The image to show the progress percentage */
-public var sprite (get_sprite, set_sprite) :CCSprite;
+public var sprite (get, set) :CCSprite;
 
 
 /** Creates a progress timer with an image filename as the shape the timer goes through */
@@ -123,7 +123,7 @@ override public function release () :Void
 	super.release();
 }
 
-public function setPercentage (percentage:Float) :Float
+public function set_percentage (percentage:Float) :Float
 {
 	if (percentage_ != percentage) {
         percentage_ = percentage.clampf (0, 100);
@@ -131,7 +131,7 @@ public function setPercentage (percentage:Float) :Float
 	}
 	return percentage_;
 }
-public function getPercentage () :Float {
+public function get_percentage () :Float {
 	return percentage_;
 }
 
@@ -240,7 +240,7 @@ public function updateRadial ()
 	var alpha :Float = percentage_ / 100.0;
 	
 	//	Otherwise we can get the angle from the alpha
-	var angle :Float = 2.0*CCMacros.M_PI * ( type_ == kCCProgressTimerTypeRadialCW ? alpha : 1.0 - alpha);
+	var angle :Float = 2.0*CCMacros.M_PI() * ( type_ == kCCProgressTimerTypeRadialCW ? alpha : 1.0 - alpha);
 	
 	//	We find the vector to do a hit detection based on the percentage
 	//	We know the first vector is the one @ 12 o'clock (top,mid) so we rotate 

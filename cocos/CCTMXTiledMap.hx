@@ -137,7 +137,7 @@ public function initWithTMXFile (tmxFile:String) :CCTMXTiledMap
 
 	super.init();
 	
-	this.setContentSize ( new CGSize() );
+	this.set_contentSize ( new CGSize() );
 
 	var mapInfo :CCTMXMapInfo = CCTMXMapInfo.formatWithTMXFile ( tmxFile );
 	
@@ -163,7 +163,7 @@ public function initWithTMXFile (tmxFile:String) :CCTMXTiledMap
 			var currentSize:CGSize = this.contentSize;
 			currentSize.width = Math.max( currentSize.width, childSize.width );
 			currentSize.height = Math.max( currentSize.height, childSize.height );
-			this.setContentSize ( currentSize );
+			this.set_contentSize ( currentSize );
 
 			idx++;
 		}			

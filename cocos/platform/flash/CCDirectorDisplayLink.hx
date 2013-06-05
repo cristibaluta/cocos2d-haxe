@@ -62,8 +62,8 @@ public function mainLoop ()
 	}
 	catch(e:Dynamic){
 		trace(e);
-		var stack = haxe.Stack.exceptionStack();
-		trace ( haxe.Stack.toString ( stack ) );
+		//var stack = haxe.Stack.exceptionStack();
+		//trace ( haxe.Stack.toString ( stack ) );
 		stopAnimation();
 	}
 }

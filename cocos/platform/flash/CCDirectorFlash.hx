@@ -64,10 +64,10 @@ var windowView_ :MovieClip;
 var superView_ :FlashView;
 var originalWinRect_ :CGRect; // Original size and position
 
-public var isFullScreen (get_isFullScreen, setFullScreen) :Bool;
-public var originalWinSize (get_originalWinSize, set_originalWinSize) :CGSize;
+public var isFullScreen (get, set) :Bool;
+public var originalWinSize (get, set) :CGSize;
 // resize mode: with or without scaling
-public var resizeMode (get_resizeMode, set_resizeMode) :CC_DirectorResize;
+public var resizeMode (get, set) :CC_DirectorResize;
 
 
 override public function init () :CCDirector
@@ -100,7 +100,7 @@ override public function release()
 //
 // setFullScreen code taken from GLFullScreen example by Apple
 //
-public function setFullScreen (fullscreen:Bool) :Bool
+public function set_isFullScreen (fullscreen:Bool) :Bool
 {
 	
 /*	
@@ -167,10 +167,10 @@ public function get_isFullScreen () :Bool
 	return isFullScreen_;
 }
 
-override public function setView (v:CC_VIEW) :CC_VIEW
+override public function set_view (v:CC_VIEW) :CC_VIEW
 {
 	trace("setView "+v);
-	super.setView ( v );
+	super.set_view ( v );
 	
 	// cache the NSWindow and NSOpenGLView created from the NIB
 	if( !isFullScreen_ && originalWinSize_.equalToSize(new CGSize()))
@@ -201,7 +201,7 @@ public function set_resizeMode (mode:CC_DirectorResize) :CC_DirectorResize
 
 		resizeMode_ = mode;
 
-        this.setProjection (projection_);
+        this.set_projection (projection_);
         view_.setNeedsDisplay (true);
 	}
 	return resizeMode_;
@@ -258,7 +258,7 @@ override public function drawScene ()
 }
 
 
-override public function setProjection(projection:CC_DirectorProjection) :CC_DirectorProjection
+override public function set_projection (projection:CC_DirectorProjection) :CC_DirectorProjection
 {
 	//trace("setprojection "+projection);
 	var size :CGSize = winSizeInPixels_;

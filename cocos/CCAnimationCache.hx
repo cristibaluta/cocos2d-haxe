@@ -37,7 +37,7 @@ import cocos.CCSprite;
 class CCAnimationCache
 {
 static var sharedAnimationCache_ :CCAnimationCache = null;
-var animations_ :Hash<CCAnimation>;
+var animations_ :Map<String,CCAnimation>;
 	
 
 /** Retruns ths shared instance of the Animation cache */
@@ -61,7 +61,7 @@ public static function purgeSharedAnimationCache () :Void
 public function new () {}
 public function init () :CCAnimationCache
 {
-	animations_ = new Hash<CCAnimation>();
+	animations_ = new Map<String,CCAnimation>();
 	return this;
 }
 

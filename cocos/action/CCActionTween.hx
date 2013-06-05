@@ -68,8 +68,6 @@ public function new (aDuration:Float, key:String, from:Float, to:Float)
 	key_	= key;
 	to_		= to;
 	from_	= from;
-    
-	return this;
 }
 
 override public function startWithTarget (aTarget:Dynamic) :Void

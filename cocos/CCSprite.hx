@@ -25,17 +25,6 @@
  */
 package cocos;
 
-import cocos.CCNode;
-
-import cocos.CCTextureAtlas;
-import cocos.CCConfig;
-import cocos.CCSpriteBatchNode;
-import cocos.CCSpriteFrame;
-import cocos.CCSpriteFrameCache;
-import cocos.CCAnimation;
-import cocos.CCAnimationCache;
-import cocos.CCTextureCache;
-import cocos.CCDrawingPrimitives;
 import cocos.CCTypes;
 import cocos.support.CGPoint;
 import cocos.support.CGRect;
@@ -135,14 +124,14 @@ var opacityModifyRGB_ :Bool;
 /** whether or not the Sprite needs to be updated in the Atlas */
 public var dirty :Bool;
 /** the quad (tex coords, vertex coords and color) information */
-public var quad (get_quad, null) :CC_V3F_C4B_T2F_Quad;
+public var quad (get, null) :CC_V3F_C4B_T2F_Quad;
 /** The index used on the TextureAtlas. Don't modify this value unless you know what you are doing */
 // Absolute (real) Index on the batch node
 public var atlasIndex :Int;
 /** returns the rect of the CCSprite in points */
-public var textureRect (get_textureRect, null) :CGRect;
+public var textureRect (get, null) :CGRect;
 /** returns whether or not the texture rectangle is rotated */
-public var textureRectRotated (get_textureRectRotated, null) :Bool;
+public var textureRectRotated (get, null) :Bool;
 /** whether or not the sprite is flipped horizontally. 
  It only flips the texture of the sprite, and not the texture of the sprite's children.
  Also, flipping the texture doesn't alter the anchorPoint.
@@ -150,7 +139,7 @@ public var textureRectRotated (get_textureRectRotated, null) :Bool;
 
 	sprite.scaleX *= -1;
  */
-public var flipX (default, setFlipX) :Bool;
+public var flipX (default, set) :Bool;
 /** whether or not the sprite is flipped vertically.
  It only flips the texture of the sprite, and not the texture of the sprite's children.
  Also, flipping the texture doesn't alter the anchorPoint.
@@ -158,18 +147,18 @@ public var flipX (default, setFlipX) :Bool;
 
 	sprite.scaleY *= -1;
  */
-public var flipY (default, setFlipY) :Bool;
+public var flipY (default, set) :Bool;
 /** opacity: conforms to CCRGBAProtocol protocol */
-public var opacity (getOpacity, setOpacity) :Int;
+public var opacity (get, set) :Int;
 /** RGB colors: conforms to CCRGBAProtocol protocol */
-public var color (get_color, set_color) :CC_Color3B;
+public var color (get, set) :CC_Color3B;
 /** whether or not the Sprite is rendered using a CCSpriteBatchNode */
 // whether or not it's parent is a CCSpriteBatchNode
 public var usesBatchNode :Bool;
 /** weak reference of the CCTextureAtlas used when the sprite is rendered using a CCSpriteBatchNode */
 public var textureAtlas :CCTextureAtlas;
 // Texture used to render the sprite
-public var texture (getTexture, setTexture) :CCTexture2D;
+public var texture (get, set) :CCTexture2D;
 /** weak reference to the CCSpriteBatchNode that renders the CCSprite */
 public var batchNode :CCSpriteBatchNode;
 /** whether or not to transform according to its parent transfomrations.
@@ -181,7 +170,7 @@ public var honorParentTransform :CCHonorParentTransform;
 /** offset position in pixels of the sprite in points. Calculated automatically by editors like Zwoptex.
  @since v0.99.0
  */
-public var offsetPositionInPixels (get_offsetPositionInPixels, null) :CGPoint;
+public var offsetPositionInPixels (get, null) :CGPoint;
 /** conforms to CCTextureProtocol protocol */
 public var blendFunc :CC_BlendFunc;
 
@@ -264,7 +253,7 @@ override public function init () :CCNode
 	blendFunc.dst = CC_BLEND_DST;*/
 	
 	// update texture (calls updateBlendFunc)
-	//this.setTexture(null);
+	//this.set_texture(null);
 	
 	// clean the Quad
 	//bzero(&quad_, sizeof(quad_));
@@ -290,7 +279,7 @@ override public function init () :CCNode
 	// Atlas: Vertex
 	// updated in "useSelfRender"
 	// Atlas: TexCoords
-	this.setTextureRectInPixels (new CGRect(0,0,0,0), false, new CGSize(0,0));
+	this.set_textureRectInPixels (new CGRect(0,0,0,0), false, new CGSize(0,0));
 	
 	// updateMethod selector
 	//updateMethod = (__typeof__(updateMethod))this.methodForSelector:@selector(updateTransform)();
@@ -314,8 +303,8 @@ public function initWithTexture (texture:CCTexture2D, rect:CGRect)
 	}
 	// IMPORTANT: this.init() and not super.init();
 	this.init();
-	this.setTexture ( texture );
-	this.setTextureRect ( rect );
+	this.set_texture ( texture );
+	this.set_textureRect ( rect );
 	
 	return this;
 }
@@ -359,7 +348,7 @@ public function initWithSpriteFrame (spriteFrame:CCSpriteFrame) :CCSprite
 	if(spriteFrame==null) throw "Invalid spriteFrame for sprite";
 
 	var ret = this.initWithTexture (spriteFrame.texture, spriteFrame.rect);
-	this.setDisplayFrame ( spriteFrame );
+	this.set_displayFrame ( spriteFrame );
 	return ret;
 }
 
@@ -404,7 +393,7 @@ public function initWithBatchNode(batchNode:CCSpriteBatchNode, rect:CGRect, rect
 	
 	if (rectIsInPixels) {
 		ret = this.initWithTexture (batchNode.texture, rect);
-		this.setTextureRectInPixels (rect, false, rect.size);
+		this.set_textureRectInPixels (rect, false, rect.size);
 		this.useBatchNode ( batchNode );
 	}
 	else {
@@ -460,23 +449,23 @@ public function useBatchNode (batchNode:CCSpriteBatchNode)
 
 /** updates the texture rect of the CCSprite in points.
  */
-public function setTextureRect (rect:CGRect)
+public function set_textureRect (rect:CGRect)
 {
-	trace("setTextureRect "+rect);
+	trace("set_textureRect "+rect);
 	var rectInPixels :CGRect = CCMacros.CC_RECT_POINTS_TO_PIXELS( rect );
-	this.setTextureRectInPixels (rectInPixels, false, /*untrimmedSize (*/rectInPixels.size);
+	this.set_textureRectInPixels (rectInPixels, false, /*untrimmedSize (*/rectInPixels.size);
 }
 
 /** updates the texture rect, rectRotated and untrimmed size of the CCSprite in pixels
  */
-public function setTextureRectInPixels (rect:CGRect, rotated:Bool, untrimmedSize:CGSize) :Void
+public function set_textureRectInPixels (rect:CGRect, rotated:Bool, untrimmedSize:CGSize) :Void
 {
-	trace("setTextureRectInPixels "+rect+", untrimmedSize "+untrimmedSize);
+	trace("set_textureRectInPixels "+rect+", untrimmedSize "+untrimmedSize);
 	rectInPixels_ = rect;
 	rect_ = CCMacros.CC_RECT_PIXELS_TO_POINTS ( rect );
 	rectRotated_ = rotated;
 
-	this.setContentSizeInPixels ( untrimmedSize );
+	this.set_contentSizeInPixels ( untrimmedSize );
 	this.updateTextureCoords ( rectInPixels_ );
 
 	var relativeOffsetInPixels :CGPoint = unflippedOffsetPositionFromCenter_;
@@ -889,103 +878,103 @@ function SET_DIRTY_RECURSIVELY() {
 	}
 }
 
-override public function setPosition(pos:CGPoint) :CGPoint
+override public function set_position(pos:CGPoint) :CGPoint
 {
-	super.setPosition(pos);
+	super.set_position(pos);
 	SET_DIRTY_RECURSIVELY();
 	return pos;
 }
 
-override function setPositionInPixels(pos:CGPoint) :CGPoint
+override function set_positionInPixels(pos:CGPoint) :CGPoint
 {
-	super.setPositionInPixels(pos);
+	super.set_positionInPixels(pos);
 	SET_DIRTY_RECURSIVELY();
 	return pos;
 }
 
-override function setRotation(rot:Float) :Float
+override function set_rotation(rot:Float) :Float
 {
-	super.setRotation(rot);
+	super.set_rotation(rot);
 	SET_DIRTY_RECURSIVELY();
 	return rot;
 }
 
-override public function setSkewX(sx:Null<Float>) :Null<Float>
+override public function set_skewX(sx:Null<Float>) :Null<Float>
 {
-	super.setSkewX(sx);
+	super.set_skewX(sx);
 	SET_DIRTY_RECURSIVELY();
 	return sx;
 }
 
-override public function setSkewY(sy:Null<Float>) :Null<Float>
+override public function set_skewY(sy:Null<Float>) :Null<Float>
 {
-	super.setSkewY(sy);
+	super.set_skewY(sy);
 	SET_DIRTY_RECURSIVELY();
 	return sy;
 }
 
-override function setScaleX(sx:Float) :Float
+override function set_scaleX(sx:Float) :Float
 {
-	super.setScaleX(sx);
+	super.set_scaleX(sx);
 	SET_DIRTY_RECURSIVELY();
 	return sx;
 }
 
-override function setScaleY(sy:Float) :Float
+override function set_scaleY(sy:Float) :Float
 {
-	super.setScaleY(sy);
+	super.set_scaleY(sy);
 	SET_DIRTY_RECURSIVELY();
 	return sy;
 }
 
-override function setScale(s:Float) :Float
+override function set_scale(s:Float) :Float
 {
-	super.setScale(s);
+	super.set_scale(s);
 	SET_DIRTY_RECURSIVELY();
 	return s;
 }
 
-override function setVertexZ(z:Float) :Float
+override function set_vertexZ(z:Float) :Float
 {
-	super.setVertexZ(z);
+	super.set_vertexZ(z);
 	SET_DIRTY_RECURSIVELY();
 	return z;
 }
 
-override function setAnchorPoint(anchor:CGPoint) :CGPoint
+override function set_anchorPoint(anchor:CGPoint) :CGPoint
 {
-	super.setAnchorPoint(anchor);
+	super.set_anchorPoint(anchor);
 	SET_DIRTY_RECURSIVELY();
 	return anchor;
 }
 
-override function setIsRelativeAnchorPoint(relative:Bool) :Bool
+override function set_isRelativeAnchorPoint(relative:Bool) :Bool
 {
 	if(usesBatchNode) throw "relativeTransformAnchor is invalid in CCSprite";
-	return super.setIsRelativeAnchorPoint(relative);
+	return super.set_isRelativeAnchorPoint(relative);
 }
 
-override function setVisible (v:Bool) :Bool
+override function set_visible (v:Bool) :Bool
 {
-	super.setVisible(v);
+	super.set_visible(v);
 	SET_DIRTY_RECURSIVELY();
 	return v;
 }
 
-function setFlipX(v:Bool) :Bool
+function set_flipX(v:Bool) :Bool
 {
 	if( flipX != v ) {
 		flipX = v;
-		this.setTextureRectInPixels (rectInPixels_, rectRotated_, contentSizeInPixels);
+		this.set_textureRectInPixels (rectInPixels_, rectRotated_, contentSizeInPixels);
 	}
 	return v;
 }
 
-function setFlipY(v:Bool) :Bool
+function set_flipY(v:Bool) :Bool
 {
 	if( flipY != v ) {
 		flipY = v;	
-		this.setTextureRectInPixels (rectInPixels_, rectRotated_, contentSizeInPixels);
+		this.set_textureRectInPixels (rectInPixels_, rectRotated_, contentSizeInPixels);
 	}
 	return v;
 }
@@ -1033,7 +1022,7 @@ public function updateColor ()
 	// do nothing
 }
 
-public function setOpacity (anOpacity:Int) :Int
+public function set_opacity (anOpacity:Int) :Int
 {
 	opacity_ = anOpacity;
 
@@ -1044,7 +1033,7 @@ public function setOpacity (anOpacity:Int) :Int
 	this.updateColor();
 	return opacity_;
 }
-public function getOpacity () :Int {
+public function get_opacity () :Int {
 	return opacity_;
 }
 
@@ -1071,7 +1060,7 @@ public function set_color (color3:CC_Color3B) :CC_Color3B
 	return color_;
 }
 
-public function setOpacityModifyRGB (modify:Bool)
+public function set_opacityModifyRGB (modify:Bool)
 {
 	var oldColor = get_color();
 	opacityModifyRGB_ = modify;
@@ -1088,18 +1077,18 @@ public function doesOpacityModifyRGB () :Bool
 //
 // CCSprite - Frames
 
-public function setDisplayFrame (frame:CCSpriteFrame)
+public function set_displayFrame (frame:CCSpriteFrame)
 {
 	unflippedOffsetPositionFromCenter_ = frame.offsetInPixels;
 
 	var newTexture :CCTexture2D = frame.texture;
 	// update texture before updating texture rect
 	if ( newTexture.name != texture_.name )
-		this.setTexture ( newTexture );
+		this.set_texture ( newTexture );
 	
 	// update rect
 	rectRotated_ = frame.rotated;
-	this.setTextureRectInPixels (frame.rectInPixels, frame.rotated, frame.originalSizeInPixels);
+	this.set_textureRectInPixels (frame.rectInPixels, frame.rotated, frame.originalSizeInPixels);
 }
 
 // CCSprite - Animation
@@ -1108,7 +1097,7 @@ public function setDisplayFrame (frame:CCSpriteFrame)
  The animation name will be get from the CCAnimationCache
  @since v0.99.5
  */
-public function setDisplayFrameWithAnimationName (animationName:String, frameIndex:Int) :Void
+public function set_displayFrameWithAnimationName (animationName:String, frameIndex:Int) :Void
 {
 	if( animationName == null) throw "CCSprite#setDisplayFrameWithAnimationName. animationName must not be null";
 	
@@ -1118,7 +1107,7 @@ public function setDisplayFrameWithAnimationName (animationName:String, frameInd
 	var frame :CCSpriteFrame = a.frames.objectAtIndex ( frameIndex );
 	if( frame == null ) throw "CCSprite#setDisplayFrame. Invalid frame";
 	
-	this.setDisplayFrame ( frame );
+	this.set_displayFrame ( frame );
 }
 
 /** returns whether or not a CCSpriteFrame is being displayed */
@@ -1147,24 +1136,24 @@ public function updateBlendFunc ()
 	if( texture_ == null || !texture_.hasPremultipliedAlpha ) {
 		blendFunc.src = GL.SRC_ALPHA;
 		blendFunc.dst = GL.ONE_MINUS_SRC_ALPHA;
-		this.setOpacityModifyRGB (false);
+		this.set_opacityModifyRGB (false);
 	} else {
 		blendFunc.src = CCMacros.CC_BLEND_SRC;
 		blendFunc.dst = CCMacros.CC_BLEND_DST;
-		this.setOpacityModifyRGB(true);
+		this.set_opacityModifyRGB(true);
 	}*/
 }
 
-function getTexture () :CCTexture2D {
+function get_texture () :CCTexture2D {
 	return texture_;
 }
-function setTexture (tex:CCTexture2D) :CCTexture2D
+function set_texture (tex:CCTexture2D) :CCTexture2D
 {
-	trace("setTexture "+tex);
-	if( usesBatchNode ) throw "CCSprite: setTexture doesn't work when the sprite is rendered using a CCSpriteBatchNode";
+	trace("set_texture "+tex);
+	if( usesBatchNode ) throw "CCSprite: set_texture doesn't work when the sprite is rendered using a CCSpriteBatchNode";
 	
 	// accept texture==null as argument
-	if( !Std.is(tex, CCTexture2D)) throw "setTexture expects a CCTexture2D. Invalid argument";
+	if( !Std.is(tex, CCTexture2D)) throw "set_texture expects a CCTexture2D. Invalid argument";
 	
 	if (texture_ != null)
 		texture_.release();

@@ -56,8 +56,8 @@ public function onEnter ()
 	layer.addChild ( outTexture );
 	
 	// initial opacity:
-	inTexture.sprite.setOpacity ( 255 );
-	outTexture.sprite.setOpacity ( 255 );
+	inTexture.sprite.set_opacity ( 255 );
+	outTexture.sprite.set_opacity ( 255 );
 	
 	// create the blend action
 	var  * layerAction :CCActionInterval = CCSequence.actions:

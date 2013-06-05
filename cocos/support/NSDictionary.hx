@@ -1,10 +1,14 @@
 package cocos.support;
 
+#if objc
+typedef NSDictionary = objc.foundation.NSDictionary;
+#else
+// Flash implementation of the NSDictionary
 class NSDictionary
 {
-	var hash_ :Hash<Dynamic>;
-	var data_ :Hash<Dynamic>;
-	public var count (getLength, null) :Int;
+	var hash_ :Map<String,Dynamic>;
+	var data_ :Map<String,Dynamic>;
+	public var count (get, null) :Int;
 	
 	/**
 	 *  Initialization of a NSDictionary
@@ -36,7 +40,7 @@ class NSDictionary
 	
 	
 	public function new () {
-		hash_ = new Hash<Dynamic>();
+		hash_ = new Map<String,Dynamic>();
 	}
 	public function release () {
 		hash_ = null;
@@ -57,9 +61,9 @@ class NSDictionary
 			}
 		}
 	}
-	function parseDictionary( xmlDict:Xml ) :Hash<Dynamic> {
+	function parseDictionary( xmlDict:Xml ) :Map<String,Dynamic> {
 		
-		var h = new Hash<Dynamic>();
+		var h = new Map<String,Dynamic>();
 		var key :String = null;
 		
 		for (element in xmlDict.elements()) {
@@ -86,12 +90,12 @@ class NSDictionary
 		//trace(h);
 		return h;
 	}
-	function parseArray (dictArr:Xml) :Hash<Dynamic> {
+	function parseArray (dictArr:Xml) :Map<String,Dynamic> {
 		return parseDictionary ( dictArr );
 	}
 	
 	
-	function getLength () :Int {
+	function get_count () :Int {
 		var keys = hash_.keys();
 		var len = 0;
 		for (key in keys)
@@ -168,7 +172,7 @@ class NSDictionary
 	}
 	public function removeAllObjects ()
 	{
-		hash_ = new Hash<Dynamic>();
+		hash_ = new Map<String,Dynamic>();
 	}
 }
 
@@ -213,3 +217,4 @@ enum T {
 	TArray;
 }
 */
+#end

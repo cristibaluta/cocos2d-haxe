@@ -8,7 +8,7 @@ class CCFadeIn extends CCActionInterval
 
 function update (t:Float) :Void
 {
-	/*[(id<CCRGBAProtocol>) */target_.setOpacity ( 255 *t);
+	/*[(id<CCRGBAProtocol>) */target_.set_opacity ( 255 *t);
 }
 
 public function reverse () :CCActionInterval

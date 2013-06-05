@@ -75,9 +75,9 @@ static var kCCMenuTouchPriority = -128;
 static var kCCMenuMousePriority = -128;
 
 /** conforms to CCRGBAProtocol protocol */
-public var opacity (default, setOpacity) :Float;
+public var opacity (default, set) :Float;
 /** conforms to CCRGBAProtocol protocol */
-public var color (default, setColor) :CC_Color3B;
+public var color (default, set) :CC_Color3B;
 
 
 /** creates a CCMenu with it's items */
@@ -106,7 +106,7 @@ public function initWithItems (items:Array<CCMenuItem>) :CCMenu
 	
 	this.isRelativeAnchorPoint = false;
 	anchorPoint_ = new CGPoint (0.5, 0.5);
-	this.setContentSize(s);
+	this.set_contentSize(s);
 	
 	// XXX: in v0.7, winSize should return the visible size
 	// XXX: so the bar calculation should be done there
@@ -154,7 +154,7 @@ public function alignItemsVerticallyWithPadding (padding:Float)
 
 	for(item in children_) {
 		var itemSize :CGSize = item.contentSize;
-	    item.setPosition ( new CGPoint(0, y - itemSize.height * item.scaleY / 2.0) );
+	    item.set_position ( new CGPoint(0, y - itemSize.height * item.scaleY / 2.0) );
 	    y -= itemSize.height * item.scaleY + padding;
 	}
 }
@@ -179,7 +179,7 @@ public function alignItemsHorizontallyWithPadding (padding:Float)
 
 	for(item in children_){
 		var itemSize :CGSize = item.contentSize;
-		item.setPosition ( new CGPoint(x + itemSize.width * item.scaleX / 2.0, 0) );
+		item.set_position ( new CGPoint(x + itemSize.width * item.scaleX / 2.0, 0) );
 		x += itemSize.width * item.scaleX + padding;
 	}
 }
@@ -427,7 +427,7 @@ public function alignItemsInColumns (columns:Array<Int>)
 
 		var itemSize :CGSize = item.contentSize;
 		rowHeight = Math.round ( Math.max(rowHeight, itemSize.height));
-		item.setPosition ( new CGPoint (x - winSize.width / 2, y - itemSize.height / 2) );
+		item.set_position ( new CGPoint (x - winSize.width / 2, y - itemSize.height / 2) );
             
 		x += w;
 		++columnsOccupied;
@@ -495,7 +495,7 @@ public function alignItemsInRows (rows:Array<Int>)
 		
 		var itemSize :CGSize = item.contentSize;
 		columnWidth = Math.round ( Math.max(columnWidth, itemSize.width));
-		item.setPosition ( new CGPoint (x + columnWidths[column] / 2, y - winSize.height / 2) );
+		item.set_position ( new CGPoint (x + columnWidths[column] / 2, y - winSize.height / 2) );
 		
 		y -= itemSize.height + 10;
 		++rowsOccupied;
@@ -517,18 +517,18 @@ public function alignItemsInRows (rows:Array<Int>)
 
 // Menu - Opacity Protocol
 
-/** Override synthesized setOpacity to recurse items */
-public function setOpacity (newOpacity:Float) :Float
+/** Override synthesized set_opacity to recurse items */
+public function set_opacity (newOpacity:Float) :Float
 {
 	opacity_ = newOpacity;
 	
 	for(i in 0...children_.length)
-		cast (children_[i], CCMenuItemLabel).setOpacity ( opacity_ );
+		cast (children_[i], CCMenuItemLabel).set_opacity ( opacity_ );
 	
 	return opacity_;
 }
 
-public function setColor (color:CC_Color3B) :CC_Color3B
+public function set_color (color:CC_Color3B) :CC_Color3B
 {
 	color_ = color;
 	

@@ -144,12 +144,12 @@ public function initWithTilesetInfo (tilesetInfo:CCTMXTilesetInfo, layerInfo:CCT
 	
 	// offset (after layer orientation is set);
 	var offset :CGPoint = this.calculateLayerOffset( layerInfo.offset );
-	this.setPositionInPixels ( offset );
+	this.set_positionInPixels ( offset );
 	
 	atlasIndexArray_ = new Array();
 	atlasIndexArray_[totalNumberOfTiles] = null;
 	
-	this.setContentSizeInPixels ( new CGSize( layerSize_.width * mapTileSize_.width, layerSize_.height * mapTileSize_.height ) );
+	this.set_contentSizeInPixels ( new CGSize( layerSize_.width * mapTileSize_.width, layerSize_.height * mapTileSize_.height ) );
 	
 	useAutomaticVertexZ_= false;
 	vertexZvalue_ = 0;
@@ -205,8 +205,8 @@ public function tileAt (pos:CGPoint) :CCSprite
 		if( tile == null ) {
 			var rect :CGRect = tileset_.rectForGID ( gid );			
 			tile = new CCSprite().initWithBatchNode ( this, rect );
-			tile.setPositionInPixels (this.positionAt(pos));
-			tile.setVertexZ (this.vertexZForPos(pos));
+			tile.set_positionInPixels (this.positionAt(pos));
+			tile.set_vertexZ (this.vertexZForPos(pos));
 			tile.anchorPoint = new CGPoint(0,0);
 			tile.opacity = opacity_;
 			
@@ -260,7 +260,7 @@ public function setTileGID (gid:Int, pos:CGPoint) :Void
 			var sprite :Dynamic = this.getChildByTag ( z );
 			if( sprite ) {
 				var rect :CGRect = tileset_.rectForGID ( gid );
-				sprite.setTextureRectInPixels (rect, false, rect.size);
+				sprite.set_textureRectInPixels (rect, false, rect.size);
 				tiles_[z] = gid;
 			} else
 				this.updateTileForGID ( gid, pos );
@@ -475,10 +475,10 @@ public function insertTileForGID (gid:Int, pos:CGPoint ) :CCSprite
 	else
 		reusedTile_.initWithBatchNode ( this, rect );
 	
-	reusedTile_.setPositionInPixels ( this.positionAt(pos) );
-	reusedTile_.setVertexZ ( this.vertexZForPos(pos) );
+	reusedTile_.set_positionInPixels ( this.positionAt(pos) );
+	reusedTile_.set_vertexZ ( this.vertexZForPos(pos) );
 	reusedTile_.anchorPoint = new CGPoint(0,0);
-	reusedTile_.setOpacity ( opacity_ );
+	reusedTile_.set_opacity ( opacity_ );
 	
 	// get atlas index
 	var indexForZ :Int = this.atlasIndexForNewZ ( z );
@@ -512,10 +512,10 @@ public function updateTileForGID (gid:Int, pos:CGPoint ) :CCSprite
 	else
 		reusedTile_.initWithBatchNode ( this, rect );
 	
-	reusedTile_.setPositionInPixels ( this.positionAt (pos));
-	reusedTile_.setVertexZ (this.vertexZForPos(pos));
+	reusedTile_.set_positionInPixels ( this.positionAt (pos));
+	reusedTile_.set_vertexZ (this.vertexZForPos(pos));
 	reusedTile_.anchorPoint = new CGPoint(0,0);
-	reusedTile_.setOpacity ( opacity_ );
+	reusedTile_.set_opacity ( opacity_ );
 	
 	// get atlas index
 	var indexForZ :Int = this.atlasIndexForExistantZ ( z );
@@ -542,10 +542,10 @@ public function appendTileForGID (gid:Int, pos:CGPoint ) :CCSprite
 	else
 		reusedTile_.initWithBatchNode ( this, rect );
 	
-	reusedTile_.setPositionInPixels (this.positionAt (pos));
-	reusedTile_.setVertexZ (this.vertexZForPos (pos));
+	reusedTile_.set_positionInPixels (this.positionAt (pos));
+	reusedTile_.set_vertexZ (this.vertexZForPos (pos));
 	reusedTile_.anchorPoint = new CGPoint(0,0);
-	reusedTile_.setOpacity ( opacity_ );
+	reusedTile_.set_opacity ( opacity_ );
 	
 	// optimization:
 	// The difference between appendTileForGID and insertTileforGID is that append is faster, since

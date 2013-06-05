@@ -38,6 +38,6 @@ public function easeActionWithAction (action:CCActionInterval) :CCActionInterval
 public function initScenes ()
 {
 	var s :CGSize = CCDirector.sharedDirector().winSize();
-	inScene_.setPosition ( new CGPoint (-s.width, 0));
+	inScene_.set_position ( new CGPoint (-s.width, 0));
 }
 }

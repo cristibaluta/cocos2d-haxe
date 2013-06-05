@@ -92,7 +92,7 @@ public function initWithFade (fade:Float, seg:Float, image:String, width:Float, 
 public function update ( delta:Float )
 {
 	var location :CGPoint = this.convertToWorldSpace ( new CGPoint(0,0) );
-	ribbon.setPosition ( new CGPoint (-1*location.x, -1*location.y) );
+	ribbon.set_position ( new CGPoint (-1*location.x, -1*location.y) );
 	var len :Float = lastLocation_.sub ( location).length();
 	if (len > segThreshold_) {
 		ribbon.addPointAt ( location, width_ );
@@ -102,23 +102,23 @@ public function update ( delta:Float )
 }
 
 // MotionStreak - CocosNodeTexture protocol
-public var texture (getTexture, setTexture) :CCTexture2D;
-//public var blendFunc (getBlendFunc, setTexture) :CC_BlendFunc;
+public var texture (get, set) :CCTexture2D;
+//public var blendFunc (getBlendFunc, set_texture) :CC_BlendFunc;
 
-public function setTexture (texture:CCTexture2D) :CCTexture2D
+public function set_texture (texture:CCTexture2D) :CCTexture2D
 {
 	return ribbon.texture = texture;
 }
-public function getTexture () :CCTexture2D
+public function get_texture () :CCTexture2D
 {
 	return ribbon.texture;
 }
 
-public function getBlendFunc () :CC_BlendFunc
+public function get_blendFunc () :CC_BlendFunc
 {
 	return ribbon.blendFunc;
 }
-public function setBlendFunc (blendFunc:CC_BlendFunc) :CC_BlendFunc
+public function set_blendFunc (blendFunc:CC_BlendFunc) :CC_BlendFunc
 {
 	return ribbon.blendFunc = blendFunc;
 }

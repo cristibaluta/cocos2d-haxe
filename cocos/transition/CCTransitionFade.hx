@@ -38,7 +38,7 @@ public function onEnter ()
 	super.onEnter();
 	
 	var l :CCLayerColor = CCLayerColor.layerWithColor ( color );
-	inScene_.setVisible ( false );
+	inScene_.set_visible ( false );
 	
 	this.addChild ( l, 2, kSceneFade );
 	

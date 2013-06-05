@@ -1,11 +1,6 @@
 
 -swf templates/cocos2d_app/build/HelloWorld.swf
--cp cocos2d
--cp cocos2d/CCAction
--cp cocos2d/CCMenu
--cp cocos2d/CCParticle
--cp cocos2d/CCTransition
--cp fontlabel
+-cp .
 -cp templates/cocos2d_app
 -cp templates/cocos2d_app/Classes
 -main Main

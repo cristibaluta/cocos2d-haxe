@@ -55,7 +55,7 @@ override public function init () :CCNode
 	var s :CGSize = CCDirector.sharedDirector().winSize();
 	this.isRelativeAnchorPoint = false;
 	anchorPoint_ = new CGPoint(0.5, 0.5);
-	this.setContentSize ( s );
+	this.set_contentSize ( s );
 	
 	return this;
 }

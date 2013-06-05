@@ -9,11 +9,11 @@ public function onEnter ()
 	super.onEnter();
 	var s :CGSize = CCDirector.sharedDirector().winSize();
 	
-	inScene_.setScale ( 0.5 );
-	inScene_.setPosition:new CGPoint ( s.width,0 );
+	inScene_.set_scale ( 0.5 );
+	inScene_.set_position:new CGPoint ( s.width,0 );
 
-	inScene_.setAnchorPoint:new CGPoint (0.5, 0.5);
-	outScene_.setAnchorPoint:new CGPoint (0.5, 0.5);
+	inScene_.set_anchorPoint:new CGPoint (0.5, 0.5);
+	outScene_.set_anchorPoint:new CGPoint (0.5, 0.5);
 
 	var  jump :CCActionInterval = CCJumpBy.actionWithDuration:duration_/4 position:new CGPoint (-s.width,0) height:s.width/4 jumps ( 2 );
 	var  scaleIn :CCActionInterval = CCScaleTo.actionWithDuration:duration_/4 scale:1.0];

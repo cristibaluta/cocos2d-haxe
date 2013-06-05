@@ -8,11 +8,11 @@ public function onEnter ()
 {
 	super.onEnter();
 	
-	inScene_.setScale ( 0.001 );
-	outScene_.setScale ( 1.0 );
+	inScene_.set_scale ( 0.001 );
+	outScene_.set_scale ( 1.0 );
 
-	inScene_.setAnchorPoint ( new CGPoint (2/3.0,0.5) );
-	outScene_.setAnchorPoint ( new CGPoint (1/3.0,0.5) );
+	inScene_.set_anchorPoint ( new CGPoint (2/3.0,0.5) );
+	outScene_.set_anchorPoint ( new CGPoint (1/3.0,0.5) );
 	
 	var scaleOut :CCActionInterval = CCScaleTo.actionWithDuration (duration_, 0.01);
 	var scaleIn :CCActionInterval = CCScaleTo.actionWithDuration (duration_, 1.0);

@@ -31,7 +31,7 @@ public function copyWithZone (zone:NSZone) :id
 
 function update (time:Float) :Void
 {
-	var angle :Float = CCMacros.M_PI * time; // 180 degrees
+	var angle :Float = CCMacros.M_PI() * time; // 180 degrees
 	var mz :Float = Math.sin( angle );
 	angle = angle / 2.0;     // x calculates degrees from 0 to 90
 	var mx :Float = Math.cos( angle );

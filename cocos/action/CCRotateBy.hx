@@ -32,7 +32,7 @@ public function startWithTarget (aTarget:Dynamic )
 function update (t:Float) :Void
 {	
 	// XXX: shall I add % 360
-	target_.setRotation: (startAngle_ +angle_ * t );
+	target_.set_rotation: (startAngle_ +angle_ * t );
 }
 
 public function reverse () :CCActionInterval
